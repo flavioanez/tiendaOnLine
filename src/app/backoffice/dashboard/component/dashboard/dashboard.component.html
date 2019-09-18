@@ -1,0 +1,316 @@
+<div class="container">
+    <div class="masonry row" style="position: relative;">
+        <div class="col s12 center" style="position: absolute; left: 0px; top: 0px;">
+            <h3 style="font-family: Serif;">Visor general diario</h3>
+        </div>
+        <div class="col s12 m12 l12 divider"></div>
+        <div class="col l3 m6 s12" style="position: absolute; left: 0px; top: 114px;">
+
+            <div class="card">
+                <div class="card-stacked">
+                    <div class="card-metrics card-metrics-static">
+                        <div class="card-metric">
+                            <div class="card-metric-title center">Compras</div>
+                            <div class="card-metric-value">
+                                <small> -> Pagadas: {{totalinvoicesconfirmed}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> Sin pagar: {{totalinvoicesdeuda}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> Anuladas: {{totalinvoicesdelete}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> total: {{(totalinvoicesconfirmed + totalinvoicesdeuda) +
+                                    totalinvoicesdelete}}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-chart">
+                    <div class="chartjs-size-monitor"
+                         style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand"
+                             style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink"
+                             style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas id="flush-area-chart-blue" height="100" width="190" class="chartjs-render-monitor"
+                            style="display: block; width: 190px; height: 100px;"></canvas>
+                </div>
+            </div>
+
+        </div>
+        <div class="col l3 m6 s12" style="position: absolute; left: 209px; top: 114px;">
+
+            <div class="card">
+                <div class="card-stacked">
+                    <div class="card-metrics card-metrics-static">
+                        <div class="card-metric">
+                            <div class="card-metric-title center">Facturas</div>
+                            <div class="card-metric-value">
+                                <small> -> Pagadas: {{totalpurchase}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> Sin pagar: {{totalpurchasedeuda | number}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> Anuladas: {{totalpurchasdelete | number}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> Total: {{(totalpurchase + totalpurchasedeuda) + totalpurchasdelete |
+                                    number}}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-chart">
+                    <div class="chartjs-size-monitor"
+                         style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand"
+                             style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink"
+                             style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas id="flush-area-chart-yellow" height="100" width="190" class="chartjs-render-monitor"
+                            style="display: block; width: 190px; height: 100px;"></canvas>
+                </div>
+            </div>
+
+        </div>
+        <div class="col l3 m6 s12" style="position: absolute; left: 419px; top: 114px;">
+
+            <div class="card">
+                <div class="card-stacked">
+                    <div class="card-metrics card-metrics-static">
+                        <div class="card-metric">
+                            <div class="card-metric-title center">Usuarios</div>
+                            <div class="card-metric-value">
+                                <small> -> Total empresarios: {{userQuantity}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> Total mayoristas: {{mayoristasQuantity}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> Total Invitados: {{invitedQuantity}}</small>
+                            </div>
+                            <div class="card-metric-value">
+                                <small> -> Total: {{(userQuantity + mayoristasQuantity) + invitedQuantity}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-chart">
+                    <div class="chartjs-size-monitor"
+                         style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand"
+                             style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink"
+                             style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas id="flush-area-chart-pink" height="100" width="190" class="chartjs-render-monitor"
+                            style="display: block; width: 190px; height: 100px;"></canvas>
+                </div>
+            </div>
+
+        </div>
+        <div class="col l5 m5 s12 blue" style="position: absolute!important; left: 10px!important; top: 337px!important;">
+            <h6 class="white-text">Total ingreso general:{{totalpurchase | number}}</h6>
+        </div>
+
+        <div class="col l7 m7 s12 blue" style="position: absolute!important; left: 377px!important; top: 337px!important;">
+            <h6 class="white-text">Total ingreso mlm del periodo:{{points * valuePoints | number}}</h6>
+        </div>
+
+    </div>
+</div>
+
+<div class="container" style="width: 87%!important; margin-top: 37%;">
+    <div class="row">
+
+        <div class="col s12 m12 l12">
+            <div class="col s12 m4 l4">
+                <small>Liquidación total de comision: {{liquidated | number}}</small>
+            </div>
+            <div class="col s12 m2 l2">
+                <small>Operación: {{(operation).toFixed(2)}}%</small>
+            </div>
+            <div class="col s12 m4 l4">
+                <small>Ingresos de comisión: {{points * valuePoints | number}}</small>
+            </div>
+        </div>
+        <div class="col s12 m12 l12" id="scroll-hirizontal">
+
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                        <small>Fecha</small>
+                    </th>
+                    <th>
+                        <small>id</small>
+                    </th>
+                    <th>
+                        <small>Nombre</small>
+                    </th>
+                    <th>
+                        <small>Rango</small>
+                    </th>
+                    <th>
+                        <small>Periodo</small>
+                    </th>
+                    <th>
+                        <small>V.C personal</small>
+                    </th>
+                    <th>
+                        <small>Patrocinados D</small>
+                    </th>
+                    <th>
+                        <small>Brazo izq</small>
+                    </th>
+                    <th>
+                        <small>Brazo der</small>
+                    </th>
+                    <th>
+                        <small>Puntos T</small>
+                    </th>
+                    <th>
+                        <small>Ingreso</small>
+                    </th>
+                    <th>
+                        <small>Bono referido</small>
+                    </th>
+                    <th>
+                        <small>Brazo debil</small>
+                    </th>
+                    <th>
+                        <small>B izquierdo 10%</small>
+                    </th>
+                    <th>
+                        <small>B derecho 10%</small>
+                    </th>
+                    <th>
+                        <small>Bono multinivel</small>
+                    </th>
+                    <th>
+                        <small>T puntos pagados</small>
+                    </th>
+                    <th>
+                        <small>Subtotal quincena</small>
+                    </th>
+                    <th>
+                        <small>Bono de inicio</small>
+                    </th>
+                    <th>
+                        <small>Total quincena</small>
+                    </th>
+                    <th>
+                        <small>Operacion</small>
+                    </th>
+                    <th>
+                        <small>Retefuente</small>
+                    </th>
+                    <th>
+                        <small>Ica</small>
+                    </th>
+                    <th>
+                        <small>Total liquidado</small>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of fortnight">
+                    <td>
+                        <small>{{item.date}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.idUsuario}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.name}} {{item.lastname}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.rango}}</small>
+                    </td>
+                    <td>
+                        <small>1</small>
+                    </td>
+                    <td>
+                        <small>{{item.mysPoints}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.directSponsored}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.pointsBranchLeft}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.pointsBranchRight}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.points}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.entry | number}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.boundReferred | number}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.weakBranch}}</small>
+                    </td>
+                    <td>
+                        <small>{{(item.weakBranch != 'RIGHT'?item.boundWeakBranch:0).toFixed(2)}}</small>
+                    </td>
+                    <td>
+                        <small>{{(item.weakBranch === 'RIGHT'?item.boundWeakBranch:0).toFixed(2)}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.teamBonus}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.pointsBranchRight <
+                            item.pointsBranchLeft?item.pointsBranchRight:item.pointsBranchLeft}}
+                        </small>
+                    </td>
+                    <td>
+                        <small>{{item.subtotalFortnight}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.startBonus | number}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.totalFortnight | number}}</small>
+                    </td>
+                    <td>
+                        <small>{{(item.entry > 0?(item.totalFortnight/item.entry) * 100:0).toFixed(2)}}%</small>
+                    </td>
+                    <td>
+                        <small>{{item.retefuent | number}}</small>
+                    </td>
+                    <td>
+                        <small>{{(item.ica).toFixed() | number}}</small>
+                    </td>
+                    <td>
+                        <small>{{item.totalLiquidated | number}}</small>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,201 @@
+#logo {
+    margin-top: 0.2em;
+    height: 67px;
+    width: 67px;
+}
+
+#menu {
+    height: 77px;
+}
+
+a {
+    font-family: Rounded_Elegance;
+}
+
+#contact {
+    margin-top: 0px;
+    padding-left: 0px;
+    width: 100%;
+}
+
+.img-footer {
+    width: 57px;
+    height: 57px;
+}
+
+.mini-logo {
+    margin-left: 0.4em;
+}
+
+.btn-marging {
+    margin-top: 0.2em;
+}
+
+#quienes {
+    color: grey;
+    font-family: Rounded_Elegance!important;
+}
+
+#vis {
+    margin-top: 2.1em;
+}
+
+.alt {
+    height: 27px;
+}
+
+.close-know-me {
+    font-size: 27px;
+    color: white;
+    margin-top: 1em;
+    margin-right: 1em;
+    text-align: center;
+}
+
+#ss {
+    margin-left: 3.8em;
+    color: #000000;
+}
+
+#m {
+    margin-top: 2.7em;
+}
+
+#mm {
+    margin-top: 4.7em;
+}
+
+#h_4 {
+    font-family: Rounded_Elegance;
+}
+
+h5 {
+    font-family: Rounded_Elegance;
+}
+
+button {
+    font-family: Rounded_Elegance;
+}
+
+label {
+    font-family: Rounded_Elegance;
+}
+
+span {
+    font-family: Rounded_Elegance;
+}
+
+select {
+    font-family: Rounded_Elegance;
+}
+
+#conte {
+    width: 90%;
+}
+
+#h_2 {
+    font-family: Rounded_Elegance;
+}
+
+#di {
+    height: 200px;
+}
+
+h3 {
+    font-family: Rounded_Elegance;
+    color: black;
+}
+
+div {
+    font-family: Rounded_Elegance;
+}
+
+.title-h3 {
+    font-family: "Rounded_Elegance";
+    font-weight: lighter;
+    font-size: 57px;
+    color: white;
+}
+
+.titleBlack-h3 {
+    font-family: "Rounded_Elegance";
+    font-weight: lighter;
+    font-size: 57px;
+    color: black;
+}
+
+select {
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+.cliente_ramdon {
+    font-family: Rounded_Elegance;
+    border-radius: 4px;
+}
+
+#respuesta_unete {
+    border-radius: 4px;
+    border: 1px solid white;
+}
+
+.mini_log {
+    font-size: 47px;
+}
+
+#contenedor_2 {
+    width: 80%;
+    margin-left: 14em;
+}
+
+.titulo {
+    color: #757575;
+}
+
+.foter {
+    border-top: 1px solid #e0e0e0;
+}
+
+h4 {
+    font-family: Rounded_Elegance;
+    color: black;
+}
+
+#en {
+    background: #8F0000;
+}
+
+#lo {
+    margin-left: 0.7em;
+}
+
+.text-footer-down {
+    margin-top: 3.7em!important;
+}
+
+.borde {
+    border: 0.7px solid red;
+}
+
+input {
+    border: 1px solid grey!important;
+    border-radius: 4px!important;
+}
+
+#contenedor {
+    width: 87%!important;
+}
+
+@media only screen and (max-width: 900px) {
+    .text-footer {
+        margin-left: 1em;
+        font-size: 9px;
+    }
+    .img-footer {
+        width: 27px;
+        height: 27px;
+    }
+    .text-footer-down {
+        margin-top: 1.7em!important;
+    }
+}

@@ -1,0 +1,65 @@
+<div *ngIf="searchProduct">
+    <div class="col s12 m12 l12">
+        <div class="col s12 m5 l5 input-field">
+            <input type="text" [(ngModel)]="buscar" placeholder="Buscar el producto...">
+        </div>
+        <div class="col s12 m12 l12 divider">.</div>
+    </div>
+    <div class="col s12 scroll-cesta">
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <th class="center th">Codigo</th>
+                <th class="center th">Producto</th>
+                <th class="center th">P. venta</th>
+                <th class="center th">P. Mayorista</th>
+                <th class="center th">P. final</th>
+                <th class="center th">% E</th>
+                <th class="center th">% M</th>
+                <th class="center th">Iva</th>
+                <th class="center th">Puntos</th>
+                <th class="center th">Editar</th>
+            </tr>
+            </thead>
+            <tbody class="content-carrito">
+
+            <tr *ngFor="let item of products|searchProduct:buscar">
+                <td class="center">
+                    <small>{{item.code}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.title}}</small>
+                </td>
+                <td class="center">{{item.priceventa}}</td>
+                <td class="center">{{item.pricefinalmayorista}}</td>
+                <td class="center">
+                    <small></small>
+                    {{item.pricefinal}}
+                </td>
+                <td class="center">
+                    <small></small>
+                    {{item.pricediscount}}
+                </td>
+                <td class="center">
+                    <small></small>
+                    {{item.pricediscountmayorista}}
+                </td>
+                <td class="center">
+                    <small></small>
+                    {{item.iva}}
+                </td>
+                <td class="center">
+                    <small></small>
+                    {{item.points}}
+                </td>
+                <td class="center">
+                    <a class="waves-effect waves-light btn-small blue color-icon"
+                       (click)="editProduct(item.code)"><i class="material-icons left white-text">edit</i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+<app-edit-product *ngIf="editarProduct" [code]="code"></app-edit-product>

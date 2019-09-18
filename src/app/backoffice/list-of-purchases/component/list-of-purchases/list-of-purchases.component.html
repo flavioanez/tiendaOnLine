@@ -1,0 +1,91 @@
+<ul id="tabs-swipe-demo" class="tabs">
+  <li class="tab col s3"><a href="#test-swipe-1" class="active" (click)="getAllInvoices()">Facturas pendientes</a>
+  </li>
+  <li class="tab col s3"><a href="#test-swipe-2" (click)="getAllInvoicesPyment()">Facturas pagadas</a></li>
+
+</ul>
+<div id="test-swipe-1" class="col s12 m12 l12">
+  <br><br>
+  <div class="container" style="width: 100%!important;">
+    <div class="row">
+
+      <div class="col s12 m12 l12 center" *ngIf="billVoid">
+        <h1 class="h1">No tiene facturas pendientes</h1>
+        <img src="../../assets/img/factura.png" class="img-responsive img" style="width: 537px; height: 277px;">
+      </div>
+
+      <div class="col s12 m3 l2 invoice-body" *ngFor="let item of invoices">
+        <div class="card">
+          <div class='card-image waves-effect waves-block waves-light'>
+            <a href='#!'>
+              <img width='305' height='229' src='assets/png/Documento-PDF.png'
+                   class='responsive-img wp-post-image' alt='Ten Belles'
+                   title='Ten Belles'
+                   srcset='../../assets/png/Documento-PDF.png 305w, ../../assets/png/Documento-PDF.png 300w, ../../assets/png/Documento-PDF.png 768w, ../../assets/png/Documento-PDF.png 800w'
+                   sizes='(max-width: 305px) 100vw, 305px'>
+            </a>
+          </div>
+          <div class='card-content'>
+            <br> Factura de compra<br>Fecha: {{item.date}}<br>Estado: {{item.stateDetail == 'deuda'? 'Sin pagar': 'Pagado'}}
+            <br>Total: {{item.totalPurchase | number}}<p class='area'>
+            <a class='btn-floating btn-small waves-effect waves-light red darken-1 left titulo'
+               [routerLink]="['/visibilityInvoiceMayorista/', item.idInvoice.low, 'back-office']">
+              <i class='tiny material-icons'>visibility</i></a>
+            <a class='btn-floating btn-small waves-effect waves-light red darken-1 left titulo poss'
+               style="margin-left: 3.4em;" (click)="deleteInvoiceId(item.idInvoice)">
+              <i class='tiny material-icons'>delete_forever</i></a>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="test-swipe-2" class="col s12 m12 l12">
+  <br>
+  <div class="container" style="width: 97%!important;">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="col s12 m4 l4 input-field">
+          <input type="text" class="datepicker" placeholder="Buscar por fecha..." (change)="searchDate($event)">
+        </div>
+        <div class="col s12 m12 l12 divider">.</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="responsive-table">
+    <thead>
+    <tr>
+      <th class="center th">Fecha</th>
+      <th class="center th">Codigo</th>
+      <th class="center th">Puntos</th>
+      <th class="center th">Total</th>
+      <th class="center th">Visualizar</th>
+    </tr>
+    </thead>
+    <tbody class="content-carrito">
+
+    <tr *ngFor="let item of invoices">
+      <td class="center">
+        <small>{{item.date}}</small>
+      </td>
+      <td class="center">
+        <small>ALL{{item.idInvoice.low}}</small>
+      </td>
+      <td class="center">
+        <small>{{item.totalPoints}}</small>
+      </td>
+      <td class="center">
+        <small>{{item.totalPurchase | number}}</small>
+      </td>
+      <td class="center">
+        <a class="waves-effect waves-light btn-floating blue color-icon"
+           [routerLink]="['/visibilityInvoiceMayorista/', item.idInvoice.low, 'back-office']"><i
+                class="material-icons left white-text">visibility</i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

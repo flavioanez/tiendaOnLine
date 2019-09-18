@@ -1,0 +1,14 @@
+.th{
+    border: 1px solid white;
+    text-align: center;
+}
+
+.td{
+    border: 1px solid grey;
+    font-family: 'rounded';
+    text-align: center;
+}
+
+h4{
+    font-family: Serif;
+}

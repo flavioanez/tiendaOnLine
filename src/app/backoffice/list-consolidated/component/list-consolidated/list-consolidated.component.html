@@ -1,0 +1,103 @@
+<div class="container" style="width: 100%!important;">
+    <div class="row">
+
+        <div class="col s12 m12 l12">
+            <div class="col s12 m5 l5 input-field">
+                <input type="text" [(ngModel)]="buscar" placeholder="Buscar por nombre del producto...">
+            </div>
+            <div class="col s12 m12 l12 divider">.</div>
+        </div>
+    </div>
+</div>
+<div class="container" style="width: 100%!important;">
+    <div class="row">
+
+        <kendo-pdf-export #pdf paperSize="auto" margin="2cm" [keepTogether]="keepTogether">
+            <div class="row" id="HTMLtoPDF">
+
+                <div class="col s12">
+                    <div class="col s12 b2">
+                        <div class="col s4">
+                            <small class="letra-movil">All In App Colombia S.A.S</small>
+                            <br>
+                            <small class="letra-movil">Nit:9011343901</small>
+                            <br>
+                            <small class="letra-movil">Regimen comun</small>
+                            <br>
+                            <small class="letra-movil">No somos autorretenedores</small>
+                            <br>
+                            <small class="letra-movil">Autorizacion Dian N° 18762007415913</small>
+                            <br>
+                            <small class="letra-movil">del 19/03/2018</small>
+                        </div>
+                        <div class="col s4">
+                            <small class="letra-movil">Calle 53 # 132-153 Lote 19 Villa Campreste</small>
+                            <br>
+                            <small class="letra-movil">PBX:</small>
+                            <br>
+                            <small class="letra-movil">E-mail:comercialallinapp@allinapp.com.co</small>
+                            <br>
+                            <small class="letra-movil">Barranquilla - Atlantico</small>
+                        </div>
+                        <div class="col s4">
+                            <small class="letra-movil">Lista consolidada</small>
+                            <div class="col s12 letra-movil b2" style="border-radius: 4px;"></div>
+                            <br>
+                            <small class="letra-movil">Fecha de lista</small>
+                            <br>
+                            <small class="letra-movil">Numero del pedido 0000000</small>
+                            <br>
+                            <small class="letra-movil">Fecha del pedido</small>
+                        </div>
+                    </div>
+                    <div class="col s12 b2">
+                        <div class="col s10">
+                            <span></span>
+                        </div>
+                        <div class="col s12 m12 l12">
+                            <small class="letra-movil">Mes del pedido:</small>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="col s12 b2">
+                        <div class="col s1 letra-movil" style="border-right: 1px solid black; height: 44px;">Codigo
+                        </div>
+                        <div class="col s4 letra-movil b-l-r">Descripcion</div>
+                        <div class="col s2 letra-movil b-l-r center">Cant Enviada</div>
+                        <div class="col s2 letra-movil b-l-r center">Unidades</div>
+                    </div>
+
+                    <div class="col s12" *ngFor="let item of products|searchProduct:buscar"
+                         style="border-right: 1px solid black; border-left: 1px solid black;">
+                        <div class="col s1">
+                            <small class="letra-movil">{{item.refProduct}}</small>
+                        </div>
+                        <div class="col s4">
+                            <small class="letra-movil">{{item.title}}</small>
+                        </div>
+                        <div class="col s2 center">
+                            <small class="letra-movil">{{item.totalUnits}}</small>
+                        </div>
+                        <div class="col s2 center">
+                            <small class="letra-movil">{{item.totalUnits}}</small>
+                        </div>
+                        <div class="col s1">
+                            <small class="letra-movil"></small>
+                        </div>
+                        <div class="col s1">
+                            <small class="letra-movil"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </kendo-pdf-export>
+        <div class="row" style="width: 77%;">
+            <div class="col s12">
+                <a class="btn-floating btn-large waves-effect waves-light red kendo-button"
+                   (click)="pdf.saveAs('lista-individual.pdf')"><i class="material-icons" id="print_btn">print</i></a>
+                <!-- <a class="btn-floating btn-large waves-effect waves-light blue darken-4" style="margin-left: 1em;"><i class="w-text material-icons">cancel</i></a>-->
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,30 @@
+#f_contenido {
+    width: 87% !important;
+}
+
+.borde {
+    border: 1px solid grey;
+}
+
+.invoice-body {
+    margin-left: 1.7em !important;
+}
+
+input {
+    border: 1px solid grey !important;
+    border-radius: 4px !important;
+}
+
+a{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+    .img {
+        width: 100%;
+    }
+
+    .h1 {
+        font-size: 20px;
+    }
+}

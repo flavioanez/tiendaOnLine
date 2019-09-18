@@ -1,0 +1,240 @@
+<app-header-home></app-header-home>
+<div id="sidenav_2">
+
+  <div class="row">
+    <div class='col s12 alt right-align'><a href="#!" class="close-know-me btn-floating z-depth-2 conoceme">x</a></div>
+    <div class='col s12 alt'></div>
+
+    <div class="col m3 l4 center m">
+      <div class="feature-icon">
+        <h5 class="quienes">MISIÓN</h5>
+      </div>
+      <div class="feature-description" class="des">Somos una Plataforma interactiva de Tienda online Multinivel, que conecta al productor del Campo directamente con el consumidor final a través de una App, que busca innovar los mecanismos tradicionales del abastecimiento de la canasta familiar
+        en los hogares, generando una oportunidad de negocio a nuestros consumidores a través de la venta directa y mercadeo en red, con un enfoque social reflejado en nuestro sector rural.</div>
+    </div>
+
+    <div class="col m3 l4 center m">
+      <div class="feature-icon"></div>
+      <div class="feature-title">
+        <h5 class="quienes">VALORES Y PRINCIPIOS</h5>
+      </div>
+      <div class="feature-description" class="vis"><strong>Los valores de All in App son:</strong><br>-Servicio.<br>-Respeto.<br>-Confianza.<br>-Lealtad.<br>-Honestidad.<br>-Responsabilidad.<br><strong>Los principios de All in App son:</strong><br>-Tratar a todas las personas como quiero ser
+        tratado.
+        <br>-Desarrollar al máximo el talento humano.<br>-Trabajo en equipo.<br>-Impulsar al progreso de nuestra comunidad.</div>
+    </div>
+
+    <div class="col l3 center" id="m">
+      <div class="feature-icon"></div>
+      <h5 id="quienes">VISIÓN</h5>
+      <div class="feature-description" class="vis">La visión de All in App es para los próximos 3 años, cautivar por encima de la competencia, la lealtad de los consumidores de cada una de nuestras sedes, la preferencia de nuestros proveedores rurales y urbanos y el orgullo de los empleado
+        y accionistas. Consolidarnos como una empresa solida con participación de las marcas comerciales propias.</div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 white-text">.</div>
+    <div class="col s12 white-text">.</div>
+    <div class="col s12 white-text">.</div>
+    <div class="col s12 white-text">.</div>
+    <div class="col s12 center titleconte">
+      <h4 class="h_4" class="black-text">All In App</h4>
+    </div>
+
+  </div>
+</div>
+<div class="container" id="conte">
+  <div class="row">
+    <div class="col s12">
+      <div class="col s12 m6 l6">
+        <h3 id="h_2" class="center">Bienvenido</h3>
+        <div class="col s12" id="di">
+          <div class="slider white">
+            <ul class="slides white">
+              <li><img src="../assets/img/slider-unete/page_1.jpg"></li>
+              <li><img src="../assets/img/slider-unete/page_3.jpg"></li>
+              <li><img src="../assets/img/slider-unete/page_4.jpg"></li>
+              <li><img src="../assets/img/slider-unete/page_5.jpg"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col s12 input-field">
+          <h5 class="h_4">
+            Nuestra oportunidad
+          </h5>
+
+        </div>
+        <div class="col s12 input-field">
+          <h6 class="h_4">
+            -Negociar con precios mas bajos del mercado.
+          </h6>
+        </div>
+        <div class="col s12 input-field">
+          <h5 class="h_4">
+            Ganar dinero
+          </h5>
+
+        </div>
+        <div class="col s12 input-field">
+          <h6 class="h_4">
+            -Oportunidad de negocio apartir de la canasta familiar.
+          </h6>
+        </div>
+
+      </div>
+      <form [formGroup]="uneteForm" (ngSubmit)="onSubmit()">
+        <div class="col s12 m6 l6">
+          <h5 class="flow-text h_4">Formulario de registro</h5>
+          <div class="col s12 input-field">
+            <span class="h_4">*E-mail</span>
+            <input type="email" [formControl]="uneteForm.controls['email']">
+          </div>
+          <div class="col s12 input-field">
+            <span class="h_4">*Crear un usuario</span>
+            <input type="text" [formControl]="uneteForm.controls['us']">
+          </div>
+          <div class="col s12 input-field">
+            <span class="h_4">*Crear una contraseña</span>
+            <input type="password" [formControl]="uneteForm.controls['password']">
+          </div>
+          <div class="col s12 input-field">
+            <span id="h_4">*Genero</span><br>
+            <select class="browser-default" [formControl]="uneteForm.controls['gender']">
+              <option value="">Seleccionar</option>
+              <option value="femenino">Femenino</option>
+              <option value="masculino">Masculino</option>
+            </select>
+          </div>
+          <div class="col s12 input-field white-text">..</div>
+          <div class="col s12 input-field">
+            <span class="h_4">*Nombre</span>
+            <input type="text" [formControl]="uneteForm.controls['name']">
+          </div>
+          <div class="col s6 input-field">
+            <span class="h_4">*Primer apellido</span>
+            <input type="text" [formControl]="uneteForm.controls['lastname1']">
+          </div>
+          <div class="col s6 input-field">
+            <span class="h_4">*Segundo apellido</span>
+            <input type="text" [formControl]="uneteForm.controls['lastname2']">
+          </div>
+          <div class="col s12 m6 l6 input-field">
+            <span class="h_4">*Tipo de documento</span>
+            <select class="browser-default" [formControl]="uneteForm.controls['typeCC']">
+              <option value="">Seleccione el tipo</option>
+              <option value="cc">CC</option>
+              <option value="c_extrangera">C.Extrangera</option>
+              <option value="pasaporte">Pasaporte</option>
+            </select>
+          </div>
+          <div class="col s12 m6 l6 input-field">
+            <span class="h_4">N° Documento</span>
+            <input type="number" [formControl]="uneteForm.controls['identificationcard']">
+          </div>
+          <div class="col s12 input-field">
+            <span class="h_4" class="left">*Fecha de nacimiento</span>
+          </div>
+          <div class="col s12 m12 l12 input-field">
+            <input type="text" class="datepicker" placeholder="Fecha:" (change)="getDate($event)">
+          </div>
+          <div class="col s12 input-field">
+            <span class="h_4">*Teléfono</span>
+            <input type="number" [formControl]="uneteForm.controls['telephone']">
+          </div>
+
+          <div class="col s12 input-field">
+            <span class="h_4">*Dirección</span>
+            <input type="text" [formControl]="uneteForm.controls['address']">
+          </div>
+          <div class="col s6 input-field">
+            <span class="h_4">*Departamento</span>
+            <select class="browser-default" [formControl]="uneteForm.controls['department']">
+              <option value="">Selecciona un departamento</option>
+              <option value="Atlantico">Atlantico</option>
+
+            </select>
+          </div>
+          <div class="col s6 input-field">
+            <span class="h_4">*Ciudad</span>
+            <select class="browser-default" [formControl]="uneteForm.controls['city']">
+              <option value="">Selecciona un municipio</option>
+              <option value="Barranquilla">Barranquilla</option>
+            </select>
+          </div>
+          <div class="col s12 white-text">.</div>
+          <div class="col s12 white-text">.</div>
+          <div class="col s12">
+            <span class="h_4">*Activare mi cuenta por medio de:</span>
+          </div>
+          <div class="col s12 input-field">
+            <select class="browser-default" [formControl]="uneteForm.controls['validateCount']">
+              <option value="">*Seleccionar</option>
+              <option value="email">E-mail</option>
+            </select>
+          </div>
+          <div class="col s12 input-field">
+            <p>
+              <label>
+                <input type="checkbox" [formControl]="uneteForm.controls['terms']" />
+                <span>*He leido y acepto los <a href="assets/pdf/Terminos.pdf" target="_blank">
+                                términos y condiciones</a></span>
+              </label>
+            </p>
+          </div>
+          <div class="col s12 m12 l12 input-field black-text center">
+            <h5>{{message}}</h5>
+          </div>
+          <div class="col s12 input-field white-text">..</div>
+          <div class="col s12 input-field right-align">
+            <button class="btn red darken-3 white-text z-depth-3 cliente_ramdon" [disabled]="buttons">Terminar registro</button>
+          </div>
+          <div class="col s12 input-field white-text">..</div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="modal-businessman" class="modal" style="width: 70%;">
+  <div class="modal-content">
+    <!--Modal para mostrar una respuesta Ajax-->
+    <div class="container" style="width: 100%">
+      <div class="row">
+        <h5 *ngIf="message"></h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+<footer class="page-footer foter grey lighten-5" id="contact">
+
+  <div class="footer-copyright grey lighten-5">
+    <div class="container">
+      <div class="row">
+
+        <div class="col s12 m6 l4 center text-footer-down">
+          <span class="black-text text-footer ">© 2018 <a href="../index.php" class="black-text" target="_blank">All in App</a></span>
+        </div>
+
+        <div class="col s12 m6 l4 text-footer-down center">
+
+          <div style="margin-left: 4em;">
+            <img src="../assets/png/i-facebook.png" class="img-footer">
+            <img src="../assets/png/i-whatsapp.png" class="img-footer">
+            <img src="../assets/png/i-youtube.png" class="img-footer">
+          </div>
+        </div>
+        <!--<a class="white-text right" href="http://www.android-kiosk.com/privacy-and-cookie-policy/">Privacy &amp; Cookies Policy</a>-->
+        <a href="//www.iubenda.com/privacy-policy/7904956" class="iubenda-nostyle no-brand iubenda-embed black-text right" title="Privacy Policy"></a>
+        <script type="text/javascript" src="//cdn.iubenda.com/iubenda_i_badge.js"></script>
+
+      </div>
+    </div>
+  </div>
+</footer>

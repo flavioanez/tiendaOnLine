@@ -1,0 +1,150 @@
+<nav class="teal">
+  <div class="nav-wrapper">
+    <ul class="left hide-on-med-and-down">
+      <li><a><i class="material-icons" (click)="back()">arrow_back</i></a></li>
+    </ul>
+  </div>
+</nav>
+<br><br>
+<kendo-pdf-export #pdf paperSize="auto" margin="2cm" [keepTogether]="keepTogether">
+  <div class="row"  id="HTMLtoPDF">
+    <div class="col s12">
+      <div class="col s2">.</div>
+      <div class="col s12 right-align"><h4 id="h4"><img src="assets/img/logo_all_app.png" height="67" width="67" style="margin-top: 0.1em;"></h4></div>
+    </div>
+    <div class="col s12 b2">
+      <div class="col s4">
+        <small class="letra-movil">All In App Colombia S.A.S</small><br>
+        <small class="letra-movil">Nit:9011343901</small><br>
+        <small class="letra-movil">Regimen comun</small><br>
+        <small class="letra-movil">No somos autorretenedores</small><br>
+        <small class="letra-movil">Autorizacion Dian N° 18762007415913</small><br>
+        <small class="letra-movil">del 19/03/2018 </small>
+      </div>
+      <div class="col s4">
+        <small class="letra-movil">Calle 53 # 132-153 Lote 19 Villa Campreste</small><br>
+        <small class="letra-movil">PBX:</small><br>
+        <small class="letra-movil">E-mail:comercialallinapp@allinapp.com.co</small><br>
+        <small class="letra-movil">Barranquilla - Atlantico</small>
+      </div>
+      <div class="col s4">
+        <small class="letra-movil">Factura de venta #</small>
+        <div class="col s12 letra-movil b2" style="border-radius: 4px;">AIA-{{idInvoice}}</div><br>
+        <small class="letra-movil">Fecha de factura </small><br>
+        <small class="letra-movil">Numero del pedido 0000000</small><br>
+        <small class="letra-movil">Fecha del pedido </small>
+      </div>
+    </div>
+    <div class="col s12 b2">
+      <div class="col s10">
+        <span></span>
+      </div>
+      <div class="col s12 m12 l12">
+        <small class="letra-movil">Mes del pedido:  </small><span></span>
+      </div>
+    </div>
+
+    <div class="col s12 b2">
+      <div class="col s6" id="d">
+        <small class="letra-movil"s>Comprado por: {{invited.name}} {{invited.lastnames}}</small><span class="letra-movil sp"></span><br>
+        <small class="letra-movil">Id Comprador: {{idInvited}}</small><span class="letra-movil sp"></span><br>
+        <small class="letra-movil">Nit o CC: {{invited.identificationcard}}</small><span class="letra-movil sp"></span><br>
+        <small class="letra-movil">Telefono: {{invited.telephone}}</small><span class="letra-movil sp"></span><br>
+
+      </div>
+      <div class="col s6">
+        <small class="letra-movil">Enviar a: </small><span class="letra-movil sp"></span><br>
+        <small class="letra-movil">telefono: {{invited.telephone}}</small><span class="letra-movil sp"></span><br>
+        <span class="letra-movil"></span>
+      </div>
+    </div>
+    <div class="col s12 b2">
+      <div class="col s1 letra-movil" style="border-right: 1px solid black; height: 44px;">Codigo</div>
+      <div class="col s4 letra-movil b-l-r">Descripcion</div>
+      <div class="col s1 letra-movil b-l-r">Cant Enviada</div>
+      <div class="col s1 letra-movil b-l-r">Tipo</div>
+      <div class="col s1 letra-movil b-l-r">Unidad</div>
+      <div class="col s1 letra-movil b-l-r">P x Unidad</div>
+      <div class="col s1 letra-movil b-l-r">P Base</div>
+      <div class="col s1 letra-movil" style="border-right: 1px solid black; height: 44px;">Iva</div>
+      <div class="col s1 letra-movil">Total x cant</div>
+    </div>
+
+    <div class="col s12" *ngFor="let item of product" style="border-right: 1px solid black; border-left: 1px solid black;">
+      <div class="col s1"><small class="letra-movil">{{item.code}}</small></div>
+      <div class="col s4"><small class="letra-movil">{{item.article}}</small></div>
+      <div class="col s1"><small class="letra-movil">{{item.units}}</small></div>
+      <div class="col s1"><small class="letra-movil">tipo</small></div>
+      <div class="col s1"><small class="letra-movil">{{item.units}}</small></div>
+      <div class="col s1"><small class="letra-movil">{{item.valor | number}}</small></div>
+      <div class="col s1"><small class="letra-movil">{{item.valor / 1.19 | number}}</small></div>
+      <div class="col s1"><small class="letra-movil">{{(item.valor / 1.19) * 0.19 | number}}</small></div>
+      <div class="col s1"><small class="letra-movil">{{item.units * item.valor | number}}</small></div>
+    </div>
+
+
+    <div class="col s12 b2">
+      <div class="col s5">
+        <div class="col s12 letra-movil">Observaciones:</div>
+        <div class="col s12">..</div>
+      </div>
+      <div class="col s7">
+        <div class="col s12">
+          <div class="col s7" style="border-right: 1px solid black;"><small class="letra-movil">Forma de pago:</small></div>
+          <div class="col s5"><small class="letra-movil">Referencia de pago:</small></div>
+        </div>
+        <div class="col s12">
+          <div class="col s7"><small class="letra-movil">Efectivo</small></div>
+          <div class="col s5"><small></small></div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m12 l12" id="f2">
+      <div class="col s2 center">
+        <small class="letra-movil">Total importe</small>
+      </div>
+      <div class="col s2 center">
+        <small class="letra-movil">Descuento</small>
+      </div>
+      <div class="col s2 center">
+        <small class="letra-movil">Subtotal</small>
+      </div>
+      <div class="col s2 center">
+        <small class="letra-movil">Cargos logisticos y por envio envio/retiro</small>
+      </div>
+      <div class="col s1 center">
+        <small class="letra-movil">Total antes del iva: </small>
+      </div>
+      <div class="col s1 center">
+        <small class="letra-movil">Iva: </small>
+      </div>
+      <div class="col s2 center">
+        <small class="letra-movil">Total a pagar : {{totalPayment | number}}</small>
+      </div>
+    </div>
+    <div class="col s12">
+      <div class="col s7">
+        <div class="col s12">
+          <div class="col s2" style="border-right: 1px solid black; border-bottom: 1px solid black;"><small class="letra-movil">Ingreso Base</small></div>
+          <div class="col s3" style="border-right: 1px solid black; border-bottom: 1px solid black; height: 33px;"><small class="letra-movil">$0</small></div>
+          <div class="col s7" style="border-right: 1px solid black; border-bottom: 1px solid black; height: 33px;"><small class="letra-movil">Estado de la factura:</small> <span style="font-weight: bold;" class="letra-movil"></span></div>
+        </div>
+        <div class="col s12">
+          <div class="col s2" style="border-right: 1px solid black; height:55px;"><small class="letra-movil">Puntos de este pedido</small></div>
+          <div class="col s3" style="border-right: 1px solid black; height:55px;"><h6 class="letra-movil"></h6></div>
+          <div class="col s7" style="border-right: 1px solid black; height:55px;"><small class="letra-movil">Peso total: Kilos</small></div>
+        </div>
+      </div>
+      <div class="col s5">
+
+      </div>
+    </div>
+  </div>
+</kendo-pdf-export>
+<div class="row" style="width: 57%;">
+  <div class="col s12">
+    <a class="btn-floating btn-large waves-effect waves-light blue" (click)="back()"><i class="material-icons">arrow_back</i></a>
+    <a class="btn-floating btn-large waves-effect waves-light red kendo-button" (click)="pdf.saveAs('factura.pdf')"><i class="material-icons" id="print_btn">print</i></a>
+    <!-- <a class="btn-floating btn-large waves-effect waves-light blue darken-4" style="margin-left: 1em;"><i class="w-text material-icons">cancel</i></a>-->
+  </div>
+</div>

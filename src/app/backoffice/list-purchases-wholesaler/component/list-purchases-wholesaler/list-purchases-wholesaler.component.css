@@ -1,0 +1,228 @@
+#body-left {}
+
+.cart-body {
+    z-index: 21;
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 35.7%;
+    left: 0px;
+    background: #ffffff;
+    opacity: 0.97;
+}
+
+#container-cart {
+    width: 90%!important;
+}
+
+.totalcompra{
+    margin-left: 4%!important;
+}
+
+.scroll-cesta {
+    overflow-y: scroll!important;
+    height: 377px;
+    width: 100%;
+    margin-top: 0.4em;
+}
+
+.borde {
+    border: 1px solid lightgrey;
+}
+
+#body-collapse {
+    width: 20%;
+    float: left;
+}
+
+#body-content {
+    float: left;
+    width: 80%;
+}
+
+#collapse {
+    margin-top: -0.4%;
+}
+
+.btn-small {
+    border: 1px solid #00BFA5;
+    height: 27px;
+    color: white;
+}
+
+.cajaInputSmall {
+    text-align: center !important;
+    height:34px!important;
+    width: 34px!important;
+    border: 1px solid white !important;
+}
+
+.btn-b{
+    border:1px solid #00BFA5;
+    height:34px;
+    width: 34px!important;
+    background:#00BFA5;
+    color:white;
+}
+
+.a{
+    cursor: pointer!important;
+}
+
+.a:hover{
+    background: blue;
+    color: white;
+}
+
+.collapsible-body {
+    height: 17px!important;
+    position: relative;
+}
+
+.collapsible-body:hover {
+    background: blue;
+    color: white;
+}
+
+span {
+    position: absolute;
+    top: 21%;
+    left: 17%;
+}
+
+input{
+    border: 1px solid grey!important;
+    border-radius: 4px!important;
+    width: 377px!important;
+    margin-left: 4%!important;
+}
+
+@media screen and (max-width: 1224px) {
+    .item-sizer {
+        width: 33.33%;
+    }
+    .item {
+        width: 33.33%;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .item-sizer {
+        width: 30%;
+    }
+    .item {
+        width: 30% !important;
+    }
+}
+
+@media screen and (max-width: 1224px) {
+    .item-sizer {
+        width: 33.33%;
+    }
+    .item {
+        width: 33.33% !important;
+    }
+}
+
+@media screen and (max-width: 2200px) {
+    .item-sizer {
+        width: 20%;
+    }
+    .item {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item-sizer {
+        width: 100%;
+    }
+    .item {
+        width: 100%!important;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .item-sizer {
+        width: 50%;
+    }
+    .item {
+        width: 50% !important;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .item-sizer {
+        width: 50%;
+    }
+    .item {
+        width: 50%!important;
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+    animation-duration: 2s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY,
+.animated.bounceIn,
+.animated.bounceOut {
+    animation-duration: .75s;
+}
+
+@keyframes bounceInRight {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    from {
+        opacity: 0;
+        transform: translate3d(3000px, 0, 0);
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px, 0, 0);
+    }
+    75% {
+        transform: translate3d(10px, 0, 0);
+    }
+    90% {
+        transform: translate3d(-5px, 0, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.bounceInRight {
+    animation-name: bounceInRight;
+}
+
+@keyframes bounceOutRight {
+    20% {
+        opacity: 1;
+        transform: translate3d(-20px, 0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(2000px, 0, 0);
+    }
+}
+
+.bounceOutRight {
+    animation-name: bounceOutRight;
+}

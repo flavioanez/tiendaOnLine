@@ -1,0 +1,83 @@
+<div class="container" style="width: 100%; border-left:1px solid grey;">
+  <div class="row">
+    <div class="col s12 m12 l12 center">
+      <h5>crear categoria</h5>
+    </div>
+    <div class="col s12 m12 l12 divider">.</div>
+    <div class="col s12 m12 l12">
+      <form [formGroup]="formCategory" (ngSubmit)="onSubmit()">
+        <div class="col s12 m4 l4 input-field">
+          <input type="text" [formControl]="formCategory.controls['category']" placeholder="Categoria">
+        </div>
+
+        <div class="col s12 m12 l12 file-field input-field">
+          <div class="btn blue col s12 m3 l3 " style="height: 32px;">
+            <span style="margin-left: -9%; margin-top: -2%">Cargar foto</span>
+            <input type="file" (change)="loadPhoto($event)">
+          </div>
+          <div class="file-path-wrapper col s12 l7 m7">
+            <input class="file-path validate" placeholder="Cargar portada" readonly>
+          </div>
+        </div>
+        <div class="col s12 m5 l5 input-field">
+          <select class="browser-default" (change)="comision($event)">
+            <option value="">Comisionable</option>
+            <option value="C">si</option>
+            <option value="P">no</option>
+          </select>
+        </div>
+        <div class="col s12 m12 l12 center">
+          <h6>{{message}}</h6>
+        </div>
+        <div class="col s12 m12 l12">
+          <button class="btn blue">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" style="width: 100%; border-left:1px solid grey;">
+  <div class="row">
+
+    <div class="col s12 m12 l12 center">
+      <h5>crear Subcategoria</h5>
+    </div>
+    <div class="col s12 m12 l12 divider">.</div>
+    <div class="col s12 m12 l12">
+      <form [formGroup]="formSubcategory" (ngSubmit)="onSubmitSubcategory()">
+
+        <div class="col s12 m5 l5 input-field">
+          <select class="browser-default" (change)="setIdcategory($event)">
+            <option value="">Selecciona una categoria</option>
+            <option *ngFor="let item of categories" value="{{item.identity.low}}">{{item.properties.categoria}}
+            </option>
+          </select>
+        </div>
+        <div class="col s12 m4 l4 input-field">
+          <input type="text" [formControl]="formSubcategory.controls['subcategory']"
+                 placeholder="nombre de la subcategoria">
+        </div>
+
+        <div class="col s12 m12 l12 file-field input-field">
+          <div class="btn blue col s12 m3 l3 " style="height: 32px;">
+            <span style="margin-left: -9%; margin-top: -2%">Cargar foto</span>
+            <input type="file" (change)="loadPhoto($event)">
+          </div>
+          <div class="file-path-wrapper col s12 l7 m7">
+            <input class="file-path validate" placeholder="Cargar el portada" readonly>
+          </div>
+        </div>
+        <div class="col s12 m12 l12 center">
+          <h6>{{message}}</h6>
+        </div>
+
+        <div class="col s12 m12 l12">
+          <button class="btn blue">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

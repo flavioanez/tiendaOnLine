@@ -1,0 +1,226 @@
+<nav class="grey lighten-5" id="menu">
+
+
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+
+  <div class="nav-wrapper">
+    <!-- btn menu movil -->
+    <a href="#!" class="brand-logo center"><img src="../assets/png/LOGOAIA.png" id="logo"></a>
+    <!-- closet -->
+    <ul class="hide-on-med-and-down">
+      <li class="right btn-marging" [routerLink]="['/unete']"><a class="black-text"><i
+              class="material-icons right">person_add</i>Únete</a></li>
+      <li class="right btn-marging" [routerLink]="['/login']"><a class="black-text"><i
+              class="material-icons left">open_in_new</i>Ingresar</a></li>
+      <li class="left btn-marging"><a href="../assets/pdf/catalogo.pdf" target="_blank" class="black-text"><i
+              class="material-icons left">photo_library</i>Catalogo</a></li>
+      <li class="left btn-marging"><a class="black-text storehome" (click)="openLogin()"><i
+              class="material-icons left">store</i>Tienda</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- menu movil -->
+<ul id="slide-out" class="sidenav">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <img src="../../../assets/img/home-movil.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="../../../assets/img/logo_all_app.png"></a>
+      <span class="white-text name">Del campo a tu mesa</span>
+      <span class="white-text email">comercial@allinapp.com.co</span>
+    </div>
+  </li>
+  <li><a [routerLink]="['/unete']"><i class="material-icons">person_add</i>Unete</a></li>
+  <li><div class="divider"></div></li>
+  <li><a [routerLink]="['/login']"><i class="material-icons">open_in_new</i>Ingresar</a></li>
+  <li><div class="divider"></div></li>
+  <li><a [routerLink]="['/loginMovil']"><i class="material-icons">store</i>Tienda</a></li>
+  <li><div class="divider"></div></li>
+</ul>
+<!-- closet-->
+<div id="login">
+
+  <div class="row">
+
+    <div class='col s12 alt right-align'><a class="close-know-me btn-floating z-depth-2 storehome black"
+                                            (click)="openLogin()">x</a></div>
+    <div class="col s12">.</div>
+
+    <div class="col s12">
+
+      <div class="col s4">.</div>
+      <div class="col s4 content-tab">
+
+        <ul class="tabs">
+          <li class="tab col s4 tab1"><a class="active white-text" href="#test1">Invitado</a></li>
+          <li class="tab col s4 tab2"><a href="#test2" class="grey-text">Empresario</a></li>
+          <li class="tab col s4 tab3 red darken-4"><a href="#test3" class="white-text">Mayorista</a></li>
+        </ul>
+
+        <div id="test1" class="content-tab">
+          <div class="col s12" id="new-invited">
+
+            <form [formGroup]="formInvited" (ngSubmit)="sendInvited()">
+
+              <div class="col s6 input-field">
+                <input type="text" name="user-invitado" [formControl]="formInvited.controls['name']"
+                       placeholder="Nombre:">
+              </div>
+
+              <div class="col s6 input-field">
+                <input type="text" name="lastnames-invitado"
+                       [formControl]="formInvited.controls['lastnames']" placeholder="Apellido:">
+              </div>
+
+              <div class="col s6 input-field">
+                <input type="number" name="cedula-invitado"
+                       [formControl]="formInvited.controls['identificationcard']"
+                       value={{cedula}}>
+              </div>
+
+              <div class="col s6 input-field">
+                <input type="number" name="telephone-invitado"
+                       [formControl]="formInvited.controls['telephone']" placeholder="Telefono:">
+              </div>
+
+              <div class="col s12 input-field">
+                <input type="email" name="email-invitado" [formControl]="formInvited.controls['email']"
+                       placeholder="E-mail:">
+              </div>
+              <div class="col s12 m12 l12 center">
+                <span class="white-text">{{campos}}</span>
+              </div>
+              <div class="col s12 input-field center" id="res-invited">
+                <small class="white-text" *ngIf="texthome">{{message}}</small>
+                <span class="white-text" *ngIf="!texthome">{{message}}</span>
+                <br><a
+                      [routerLink]="['/unete']" style="font-size: 21px!important;">
+                <small>¡unirte como empresario!</small>
+              </a> | <a style="font-size: 21px!important; cursor: pointer;"
+                        (click)="showFormInvitedDisablesd()">
+                <small>¡ingresar como invitado!</small>
+              </a>
+
+              </div>
+
+              <div class="col s12 input-field center">
+                <button class="btn black white-text" id="registry-invited">Registrar</button>
+              </div>
+
+
+            </form>
+          </div>
+
+          <div class="col s12" id="old-invited">
+            <form [formGroup]="formLoginInvited" (ngSubmit)="loginInvited()">
+              <div class="col s12 input-field">
+                <input type="number" id="identificationcard-invitado"
+                       [formControl]="formLoginInvited.controls['identificationcard']" placeholder="Ingresa el numero de cedula registrado">
+              </div>
+
+              <div class="col s12 m12 l12 center">
+                <span class="white-text">{{campos}}</span>
+              </div>
+
+              <div class="col s12 input-field center" id="res-businessman">
+                <small class="white-text" *ngIf="texthome">Por favor haga click en los espacios, no
+                  sobre
+                  los item , ingrese
+                  su numero de cedula, tendra acceso a todos nuestros productos. Si aun no estas
+                  registrado como invitado por favor registrate aqui.
+                </small>
+                <span *ngIf="!texthome" class="white-text texthome">Bienvenido, ya estas registrado, por favor inicia sesion con tu numero de cedula</span>
+                <br>
+                <a style="font-size: 21px!important; cursor: pointer; font-family: serif;"
+                   (click)="showFormInvited()">
+                  <small>¡registrarme como invitado!</small>
+                </a>
+              </div>
+
+              <div class="col s12 input-field center">
+                <button class="btn black white-text" id='login-businessman'>
+                  Ingresar
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+        <div id="test2" class="col s12">
+          <div class="col s12">
+            <form [formGroup]="formBusinessman" (ngSubmit)="sendLogin()">
+              <div class="col s12 m12 l12 input-field">
+                <input type="text" [formControl]="formBusinessman.controls['user']"
+                       placeholder="Usuario:">
+              </div>
+              <div class="col s12 m12 l12 input-field content-tab">
+                <input type="password" [formControl]="formBusinessman.controls['password']"
+                       placeholder="Contraseña:">
+              </div>
+              <div class="col s12 m12 l12 center">
+                <span class="white-text">{{campos}}</span>
+              </div>
+              <div class="col s12 m12 l12">.</div>
+              <div class="col s12 center">
+                <a [routerLink]="['/recoverData']">¿Olvidaste tu usuario o contraseña?</a>
+              </div>
+
+              <div class="col s12 input-field center" id="res-empresario">
+                <small class="white-text">Por favor haga click en los espacios, no sobre los item ,
+                  ingrese
+                  su
+                  usuario y contraseña, tendras acesso directamente a tu tienda online.
+                </small>
+              </div>
+
+              <div class="col s12 input-field center">
+                <button class="btn black white-text" id="login-user">Ingresar</button>
+              </div>
+              <div class="col s12 input-field center white-text res-login">.</div>
+            </form>
+          </div>
+        </div>
+
+
+        <div id="test3" class="col s12">
+          <form [formGroup]="formMayorista" (ngSubmit)="sendLoginMayorista()">
+            <div class="col s12 input-field">
+              <input type="text" placeholder="N° de identificación:"
+                     [formControl]="formMayorista.controls['identificationcard']">
+            </div>
+            <div class="col s12 input-field content-tab">
+              <input type="password" placeholder="Contraseña:"
+                     [formControl]="formMayorista.controls['password']">
+            </div>
+            <div class="col s12 m12 l12 center">
+              <span class="white-text">{{campos}}</span>
+            </div>
+            <div class="col s12 m12 l12">.</div>
+            <div class="col s12 center">
+              <a [routerLink]="['/recoverData']">¿Olvidaste tu usuario o contraseña?</a>
+            </div>
+
+            <div class="col s12 input-field center" id="res-mayorista">
+              <small class="white-text">Por favor haga click en los espacios, no sobre los item , ingrese
+                su
+                usuario y contraseña, tendras acesso directamente a tu tienda online.
+              </small>
+            </div>
+
+            <div class="col s12 input-field center">
+              <button class="btn black white-text" id="login-mayorista">Ingresar</button>
+            </div>
+            <div class="col s12 input-field center white-text" id="res-login">.</div>
+          </form>
+        </div>
+
+      </div>
+      <div class="col s4">.</div>
+    </div>
+
+
+  </div>
+
+</div>
+

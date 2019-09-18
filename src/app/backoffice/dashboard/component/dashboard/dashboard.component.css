@@ -1,0 +1,43 @@
+#body-left {}
+
+.borde {
+    border: 1px solid lightgrey;
+}
+
+#body-collapse {
+    width: 20%;
+    float: left;
+}
+
+#body-content {
+    float: left;
+    width: 80%;
+}
+
+#scroll-hirizontal{
+    width: 100%!important;
+    height: 277px;
+    overflow-y: auto!important;
+    overflow-x: auto!important;
+    border:1px solid grey;
+}
+
+#collapse {
+    margin-top: -0.4%;
+}
+
+.collapsible-body {
+    height: 17px!important;
+    position: relative;
+}
+
+.collapsible-body:hover {
+    background: blue;
+    color: white;
+}
+
+span {
+    position: absolute;
+    top: 21%;
+    left: 17%;
+}

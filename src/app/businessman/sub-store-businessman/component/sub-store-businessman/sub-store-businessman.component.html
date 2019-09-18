@@ -1,0 +1,515 @@
+<nav class="orange darken-3" id="menu">
+    <div class="nav-wrapper">
+        <a class="brand-logo left" id="body-logo"><img src="../../assets/png/new-logo.png" id="logo"
+                                                       [routerLink]="['/businnessman']"></a>
+        <ul class="hide-on-med-and-down">
+            <li class="center"><input type="search" id="searchProduct" class="searchProduct" [(ngModel)]="buscador"
+                                      placeholder=" Buscar..." (click)="openSearch()">
+            </li>
+
+        </ul>
+        <a id="offers">Ofertas de la semana<i class="material-icons" id="offers-icon">touch_app</i></a>
+        <a id="categories" (mouseenter)="menuCategories()">Categorias<i class="material-icons" id="categories-icon">keyboard_arrow_down</i></a>
+        <a id="invoices" (click)="openInvoice()">Facturas({{totalInvoice}})</a>
+        <a id="history" (click)="setStories()">Historial</a>
+        <a id="cart" (click)="openCart()">Articulos({{totalUnits}})</a>
+        <a id="payment">Total({{totalPurchase | number}})</a>
+        <a id="user">Hola, {{user.name}} {{user.lastname1}}</a>
+    </div>
+</nav>
+<br>
+<div class="panel-category container">
+    <a>
+        <a class="link-section" [routerLink]="['/store']">Ver todos - </a>
+        <small class="link-section"> {{nameCategory}}</small>
+        <small class="link-section" *ngFor="let i of listSubCategories" (click)="seeCategory(i.identity.low, false)"> -
+            {{i.properties.subcategoria}}
+        </small>
+    </a>
+</div>
+
+<div class="container" id="toggle-categories" (mouseleave)="menuCategoriesOut()">
+    <div id="triangulo"></div>
+    <div class="sub-toggle white" (mouseleave)="outCategory()">
+        <h6 class="text-categoriy grey-text"> PRODUCTOS</h6>
+        <hr>
+        <div class="col s12 m12 l12" *ngFor="let i of listSubCategoriesDropdown"
+             (click)="seeCategory(i.identity.low, false)">
+            <span style="margin-left: 3.7%;" class="sub-text">{{i.properties.subcategoria}}</span>
+        </div>
+    </div>
+    <div class="row grey darken-4">
+        <div class="col s12 m12 l12 grey-text">.</div>
+        <div class="col s12 m12 l12 list-categories" *ngFor="let i of listcategories"
+             (mouseenter)="hoverCategory(i.identity.low, false)">
+            <span class="white-text">{{i.properties.categoria}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="container movil white">
+    <a id="menu-movil" data-target="slide-out" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+    <div class="row">
+        <div class="col s9 m9 l9 center">
+            <input type="search" id="searchProductMovil" class="searchProduct" [(ngModel)]="buscador"
+                   placeholder="Buscar..." (click)="openSearchMovil()">
+        </div>
+        <div class="col s3 m3 l3">
+            <a class="black-text carro-modal cesta-view" [routerLink]="['/cartBusinessman']">
+                <i class="material-icons black-text left">shopping_cart</i>
+                <small class="w3">({{totalUnits}})</small>
+                <br>
+                <span id="total" style="color: black!important;">{{totalPurchase |number}}</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div *ngIf="store">
+    <br>
+    <div class="search-results" infiniteScroll [infiniteScrollThrottle]="50" [scrollWindow]="true"
+         (scrolled)="onScroll()">
+
+        <div class="container" style="width: 100%;">
+            <div class="row">
+
+                <div class="col s10 m10 l10 white-text list-products">
+
+                    <div class='col s12 m2 l3 item' *ngFor="let item of products"
+                         style="width: 277px!important; margin-left: 3.7em;">
+                        <img src="../../assets/img/etiqueta-naranja.png" class="etiqueta">
+                        <div class='card car'>
+                            <div class='card-image waves-effect waves-block waves-light'>
+                                <a>
+                                    <img src='../../assets/img/img-small/{{item.properties.photo}}' alt='item-img'>
+                                </a>
+                            </div>
+
+                            <div class='card-content'>
+                                <div class='row'>
+
+                                    <a class='quitar' (click)="removeQuantity(item.properties.code)">
+                                        <div class='col s4 center btn btn-b'><i class='material-icons'>remove</i></div>
+                                    </a>
+                                    <div class='col s4 center' style='border:1px solid lightgrey; height:27px;'>
+                                        <input type='number' [(ngModel)]="quantity[item.properties.code]"
+                                               class='cajaInput'
+                                               readonly>
+                                    </div>
+                                    <a class='agregar' (click)="addQuantity(item.properties.code)">
+                                        <div class='col s4 center btn btn-b'><i class='material-icons'>add</i></div>
+                                    </a>
+                                    <div class="col s12">
+                                        <div class="p-detalle">
+                                            <p>{{item.properties.title}}</p>
+                                        </div>
+
+                                        <div class='col s6 precios-valor'>{{item.properties.priceventa}}</div>
+                                        <div class='col s6 precios-valor'><span class='discount'>%{{item.properties.pricediscount}}</span>
+                                        </div>
+                                        <div class='col s6 precios-valor'><s class='s-title'>{{item.properties.pricediscount
+                                            != 0?item.properties.pricefinal:item.properties.priceventa}}</s>
+                                        </div>
+                                        <div class='col s6 precios-valor'></div>
+
+                                    </div>
+
+                                    <div class="col s12">
+                                        <ul class='card-action-buttons'>
+                                            <li>
+                                                <a class='btn-floating waves-effect cyan idPro'
+                                                   (click)="addCart(item.properties.code)">
+                                                    <i class='material-icons'>add_shopping_cart</i>
+                                                </a>
+                                                <a class='btn-floating btn-large waves-effect waves-light red accent-2 center'
+                                                   title='Valor en Puntos'>
+                                                    {{item.properties.points}}
+                                                    <small style='font-size: 9px;'>Ptos</small>
+                                                </a>
+                                                <a class='btn-floating waves-effect waves-light deep-orange accent-2'
+                                                   title='Detalles'>
+                                                    <i class='material-icons activator'>info_outline</i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class='card-reveal'>
+                            <span class='card-title grey-text text-darken-4'>
+                            <i class='material-icons right'>close</i> {{item.title}}</span>
+                                <p>{{item.descriptionSmall}}</p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="col s2 m2 l2 categoria-lateral">
+                    <h6>Categoria</h6>
+                    <hr>
+                    <div class="col s12 m12 l12" *ngFor="let i of productsAux">
+                        * <span class="black-text">{{i.properties.title}} ({{i.properties.stock}})</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- menu movil -->
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="../../../assets/img/home-movil.jpg">
+                </div>
+                <a><img class="circle" src="../../../assets/img/logo_all_app.png"></a>
+                <span class="white-text name">Del campo a tu mesa</span>
+                <span class="white-text email">comercial@allinapp.com.co</span>
+            </div>
+        </li>
+        <li>
+            <a [routerLink]="['/store']"><i class="material-icons">shop</i>Todos los productos</a></li>
+        <li>
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">shop</i>Subcategorias</div>
+                    <div class="collapsible-body sidenav-close" *ngFor="let i of listSubCategories"
+                         (click)="sideMenuCategory(i.identity.low)">
+                        <span class="title-category"> {{i.properties.subcategoria}}</span>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li><a [routerLink]="['/InvoicesFromTheStoreBusinessman']"><i class="material-icons">content_copy</i>Pagar
+            compra</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a [routerLink]="['/businnessman']"><i class="material-icons">exit_to_app</i>Salir</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+    </ul>
+
+</div>
+
+<div class="stories" *ngIf="stories">
+
+    <div class="container" style="width: 97%!important;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="col s12 m4 l4 input-field">
+                    <input type="text" placeholder="Buscar por codigo de factura..." id="input-stories" [(ngModel)]="searchInvoice">
+                </div>
+                <div class="col s12 m12 l12 divider">.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <table class="responsive-table">
+                <thead>
+                <tr>
+                    <th class="center th">Fecha</th>
+                    <th class="center th">Codigo</th>
+                    <th class="center th">Puntos</th>
+                    <th class="center th">Total</th>
+                    <th class="center th">Visualizar</th>
+                </tr>
+                </thead>
+                <tbody class="content-carrito">
+
+                <tr *ngFor="let item of storiesInvoices | pipeInvoice: searchInvoice">
+                    <td class="center">
+                        <small>{{item.properties.date}}</small>
+                    </td>
+                    <td class="center">
+                        <small>{{item.idInvoice}}</small>
+                    </td>
+                    <td class="center">
+                        <small>{{item.properties.totalPoints}}</small>
+                    </td>
+                    <td class="center">
+                        <small>{{item.properties.totalPurchase | number}}</small>
+                    </td>
+                    <td class="center">
+                        <a class="waves-effect waves-light btn-floating blue color-icon"
+                           [routerLink]="['/visibilityInvoice/', item.idInvoice]"><i
+                                class="material-icons left white-text">visibility</i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="cart-body" id="cart-body" *ngIf="setCart"><br><br>
+    <div class="vista-cesta" id="vista-cesta">
+        <div class="container" id="container-cart">
+            <div class="row">
+                <div class="col s12">
+                    <table class="responsive-table">
+                        <thead>
+                        <tr>
+                            <th class="center orange darken-3 white-text">Codigo</th>
+                            <th class="center orange darken-3 white-text">Producto</th>
+                            <th class="center orange darken-3 white-text">Precio</th>
+                            <th class="center orange darken-3 white-text">Puntos</th>
+                            <th class="center orange darken-3 white-text">Total</th>
+                            <th class="center orange darken-3 white-text">Unidades o Libra</th>
+                            <th class="center orange darken-3 white-text">Eliminar</th>
+                        </tr>
+                        </thead>
+                        <tbody class="content-carrito">
+
+                        <tr *ngFor="let item of cartContent">
+                            <td class="center">
+                                <small>{{item.refProduct}}</small>
+                            </td>
+                            <td class="center">
+                                <small>{{item.title}}</small>
+                            </td>
+                            <td class="center">{{item.value | number}}</td>
+                            <td class="center">
+                                <small></small>
+                                {{item.points | number}}
+                            </td>
+                            <td class="center">{{(item.totalUnits * item.value) | number}}</td>
+                            <td class="center" style="width: 177px;">
+                                <div class="col s12">
+                                    <a class='quitar' (click)="removeUnits(item.refProduct)">
+                                        <div class='col s3 center btn btn-small red darken-1'><i
+                                                class='material-icons'>remove</i>
+                                        </div>
+                                    </a>
+                                    <div class='col s5 center' style='border:1px solid lightgrey; height:27px;'>
+                                        <input type='number' [(ngModel)]="unitSmall[item.refProduct]"
+                                               class='cajaInputSmall' readonly>
+                                    </div>
+                                    <a class='agregar' (click)="addUnits(item.refProduct)">
+                                        <div class='col s3 center btn btn-small red darken-1'><i
+                                                class='material-icons'>add</i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="center">
+                                <a class="waves-effect waves-light btn-small delete-article color-icon red darken-1"
+                                   (click)="deleteProduct(item.refProduct)"><i
+                                        class="material-icons left white-text">delete</i></a>
+                            </td>
+                        </tr>
+                        <tr *ngIf="cartContent.length == 0">
+                            <td colspan='7' style="text-align: center;"><br><br>
+                                <img src="../../assets/img/carrito_vacio.png">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+                <div class='col s6 m6 l6'>
+
+                    <div class="col s12 m4 l4 divPerform">
+                        <button class="btn white-text btn-confirm-pending orange darken-3" [disabled]="buttons"
+                                (click)="performPurchase()">Realizar Pedido
+                        </button>
+                    </div>
+                    <div class="col s12 m4 l4 divCancel">
+                        <button class="btn white-text btn-pedidos orange darken-3" [disabled]="buttons"
+                                (click)="canceledPurchase()">Cancelar Pedido
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col s12 m3 l3 textPrice">
+                    <p class="totalCompra">Total de la Compra: {{totalPurchase |number}}
+
+                    </p>
+                </div>
+                <div class="col s12 m2 l2 textDots">
+                    <p class="totalPuntos">Total de Puntos: {{totalPoints | number}}
+
+                    </p>
+                </div>
+                <div class="col s12 m12 l12 center">
+                    <h5>{{message}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="setSearch">
+
+    <div class="cart-body" id="searchPro">
+        <div class="vista-cesta">
+            <div class="container" style="width: 100%!important;">
+                <div class="row">
+                    <div class="col s12 m12 l12 center">
+                        <h5 class="rouded">Que producto deseas buscar...</h5>
+                    </div>
+                    <div class="col s12 m12 l12 divider">.</div>
+                    <div class="col s12 m12 l12" style="margin-left: 5%;">
+                        <div class='col s12 m2 l3 item' *ngFor="let item of listaprodAux|searchProduct:buscador"
+                             style="width: 277px!important;">
+                            <img src="../../assets/img/etiqueta-naranja.png" class="etiqueta">
+                            <div class='card car'>
+                                <div class='card-image waves-effect waves-block waves-light'>
+                                    <a href='#'>
+                                        <img src='../../assets/img/img-small/{{item.photo}}' alt='item-img'>
+                                    </a>
+                                </div>
+
+                                <div class='card-content'>
+                                    <div class='row'>
+
+                                        <a class='quitar' (click)="removeQuantity(item.code)">
+                                            <div class='col s4 center btn btn-b'><i class='material-icons'>remove</i>
+                                            </div>
+                                        </a>
+                                        <div class='col s4 center' style='border:1px solid lightgrey; height:27px;'>
+                                            <input type='number' [(ngModel)]="quantity[item.code]" class='cajaInput'
+                                                   readonly>
+                                        </div>
+                                        <a class='agregar' (click)="addQuantity(item.code)">
+                                            <div class='col s4 center btn btn-b'><i class='material-icons'>add</i></div>
+                                        </a>
+                                        <div class="col s12">
+                                            <div class="p-detalle">
+                                                <p>{{item.title}}</p>
+                                            </div>
+
+                                            <div class='col s6 precios-valor'>{{item.priceventa}}</div>
+                                            <div class='col s6 precios-valor'><span
+                                                    class='discount'>%{{item.pricediscount}}</span>
+                                            </div>
+                                            <div class='col s6 precios-valor'><s class='s-title'>{{item.pricediscount !=
+                                                0?item.pricefinal:item.priceventa}}</s>
+                                            </div>
+                                            <div class='col s6 precios-valor'></div>
+
+                                        </div>
+
+                                        <div class="col s12">
+                                            <ul class='card-action-buttons'>
+                                                <li>
+                                                    <a class='btn-floating waves-effect cyan idPro'
+                                                       (click)="addCart(item.code)">
+                                                        <i class='material-icons'>add_shopping_cart</i>
+                                                    </a>
+                                                    <a class='btn-floating btn-large waves-effect waves-light red accent-2 center'
+                                                       title='Valor en Puntos'>
+                                                        {{item.points.low}}
+                                                        <small style='font-size: 9px;'>Ptos</small>
+                                                    </a>
+                                                    <a class='btn-floating waves-effect waves-light deep-orange accent-2'
+                                                       title='Detalles'>
+                                                        <i class='material-icons activator'>info_outline</i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class='card-reveal'>
+                            <span class='card-title grey-text text-darken-4'>
+                            <i class='material-icons right'>close</i> {{item.title}}</span>
+                                    <p>{{item.descriptiondetailed}}</p>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div *ngIf="setInvoice"><br><br>
+
+    <div class="view-invoices" id="view-invoices">
+        <div class="container content">
+            <div class="row">
+
+                <div class="col s12 body-invoices">
+
+
+                    <div class="col s12 m3 l2 invoice-body" *ngFor="let item of invoices">
+                        <div class="card">
+                            <div class='card-image waves-effect waves-block waves-light'>
+                                <a href='#!'>
+                                    <img width='305' height='229' src='assets/png/Documento-PDF.png'
+                                         class='responsive-img wp-post-image' alt='Ten Belles'
+                                         title='Ten Belles'
+                                         srcset='../../assets/png/Documento-PDF.png 305w, ../../assets/png/Documento-PDF.png 300w, ../../assets/png/Documento-PDF.png 768w, ../../assets/png/Documento-PDF.png 800w'
+                                         sizes='(max-width: 305px) 100vw, 305px'>
+                                </a>
+                            </div>
+                            <div class='card-content'>
+                                <a class="btn orange darken-3 darken-4 titulo btn-payments"
+                                   (click)="paymentInvoice(item.idInvoice)">Pagar</a>
+                                <br> Factura de compra<br>Fecha: {{item.date}}<br>Estado: {{item.stateDetail == 'deuda'?
+                                'Sin pagar': 'Pagado'}}
+                                <br>Total: {{item.totalPurchase | number}}<p class='area'>
+                                <a class='btn-floating btn-small waves-effect waves-light orange darken-3 left titulo'
+                                   [routerLink]="['/visibilityInvoice/', item.idInvoice.low]">
+                                    <i class='tiny material-icons'>visibility</i></a>
+                                <a class='btn-floating btn-small waves-effect waves-light orange darken-3 left titulo poss'
+                                   style="margin-left: 3.4em;" (click)="deleteInvoiceId(item.idInvoice)">
+                                    <i class='tiny material-icons'>delete_forever</i></a>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l12 center" *ngIf="pngInvoices">
+                        <h1 class="rounded">No tienes facturas pendientes</h1>
+                        <img src="../assets/img/factura.png">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="cart-body searchMovil" id="searchProMovil">
+    <div class="vista-cesta">
+        <div class="container" style="width: 100%!important;">
+            <div class="row">
+                <div class="col s12 m12 l12 center">
+                    <div class='col s1 m1 l1 alt right' style="margin-top: -4.3%;margin-left: -17%!important;"><a
+                            (click)="openSearchMovil()"
+                            class="close-know-me btn-floating z-depth-2 cesta-view teal-background">x</a>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12 divider">.</div>
+                <div class="col s12 m12 l12" style="margin-left: 5%;">
+                    <div>
+                        <ul class="collection" style="margin-left: -7%">
+                            <li class="collection-item" *ngFor="let item of listaprodAux|searchProduct:buscador">
+                                <div [routerLink]="['/detailBusinessman/', item.code]">{{item.title}}<a href="#!"
+                                                                                                        class="secondary-content"><i
+                                        class="material-icons">search</i></a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

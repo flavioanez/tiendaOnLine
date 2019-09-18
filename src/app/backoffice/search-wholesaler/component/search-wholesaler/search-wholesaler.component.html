@@ -1,0 +1,68 @@
+<div *ngIf="searchComponent">
+    <div class="col s12 m12 l12">
+        <div class="col s12 m5 l5 input-field">
+            <input type="number" [(ngModel)]="buscar" placeholder="Ingresa la cedula del mayorista">
+        </div>
+        <div class="col s12 m12 l12 divider">.</div>
+    </div>
+    <div class="col s12 scroll-cesta">
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <th class="center th">Codigo</th>
+                <th class="center th">Nombre</th>
+                <th class="center th">Cedula</th>
+                <th class="center th">Correo</th>
+                <th class="center th">Telefono</th>
+                <th class="center th">Vender</th>
+                <th class="center th">Compras</th>
+                <th class="center th">Documentación</th>
+            </tr>
+            </thead>
+            <tbody class="content-carrito">
+
+            <tr *ngFor="let item of mayoristas|searchMayorista:buscar">
+                <td class="center">
+                    <small>ALL-{{item.idMayorista}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.name}} {{item.lastnames}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.identificationcard}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.email}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.telephone}}</small>
+                </td>
+                <td class="center">
+                    <a class="waves-effect waves-light btn-small blue color-icon"
+                       (click)="openPurchases(item.idMayorista)"><i
+                            class="material-icons left white-text">shopping_cart</i></a>
+                </td>
+                <td class="center">
+                    <a class="waves-effect waves-light btn-small blue color-icon"
+                       (click)="openHistory(item.idMayorista)"><i class="material-icons left white-text">visibility</i></a>
+                </td>
+                <td class="center">
+                    <a class="waves-effect waves-light btn-small blue color-icon"><i class="material-icons left white-text">import_contacts</i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+
+<app-list-purchases-wholesaler *ngIf="purchaseWholiser" [idMayorista]="idWholesaler"></app-list-purchases-wholesaler>
+<app-list-of-purchases *ngIf="listOfPurchases" [idUsuario]="idWholesaler"></app-list-of-purchases>
+
+<div class="container" style="width: 100%!important;" *ngIf="btnBack">
+    <div class="row">
+        <div class="col s12 m12 l12"><br>
+            <button class="btn blue" (click)="back()"><i class="material-icons">arrow_back</i></button>
+        </div>
+    </div>
+</div>

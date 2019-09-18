@@ -1,0 +1,29 @@
+<app-header-office></app-header-office>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <h5 class="h5">Datos Personales</h5>
+      <div class="divider"></div>
+      <h6 class="white-text">Datos De La Cuenta</h6>
+      <div class="col s12 m5 l5">
+        <ul>
+          <li class="dis">*Nombre y apellido: {{user.name}} {{user.lastname1}}<i class="material-icons right" [routerLink]="['/modify']" (click)="modifyUser()">edit</i></li>
+          <li class="dis">*Telefono: {{user.telephone}}<i class="material-icons right" [routerLink]="['/modify']" (click)="modifyTelephone()">edit</i></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col s12">
+      <h5 class="h5">Direccion Del Domicilio</h5>
+      <div class="divider"></div>
+      <h6 class="white-text">Datos De La Cuenta</h6>
+      <div class="col s12 m5 l5">
+        <ul>
+          <li class="dis">*Dirección: {{user.address}}<i class="material-icons right" [routerLink]="['/modify']" (click)="modifyAddress()">edit</i></li>
+          <li class="dis">*Email: {{user.email}}<i class="material-icons right" [routerLink]="['/modify']" (click)="modifyEmail()">edit</i></li>
+          <li class="dis">*Clave:  *******************************************<i class="material-icons right" [routerLink]="['/modify']" (click)="modifyPassword()">edit</i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

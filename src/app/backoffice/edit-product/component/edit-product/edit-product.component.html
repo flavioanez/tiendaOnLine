@@ -1,0 +1,168 @@
+<div class="container" style="border: 1px solid grey; width: 100%;">
+  <div class="row">
+
+    <div class="col s12 m12 l12">
+
+      <form #formProduct="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="col s12 m12 l12">
+
+          <div class="input-field col s3 m3 l3">
+            <small for="titulo">Titulo:</small>
+            <input type='text' name="title" #title="ngModel" [(ngModel)]="product.title">
+            <small *ngIf="!title.valid && title.touched">
+              El nombre del producto es obligatorio
+            </small>
+          </div>
+
+          <div class="input-field col s3 m3 l3">
+            <small for="description-small">Unidad de medida:</small>
+            <input name="description" #medida="ngModel" [(ngModel)]="product.medida"
+                   type="text">
+            <span *ngIf="!medida.valid && medida.touched">
+                                    La decripcion es obligatoria
+                            </span>
+          </div>
+
+          <div class="input-field col s6 m6 l6">
+            <small for="description large">Description Detallada:</small>
+            <input name="descriptiondetailed" #descriptiondetailed="ngModel"
+                   [(ngModel)]="product.descriptiondetailed" type="text">
+          </div>
+        </div>
+        <div class="col s12 m12 l12 center">
+          <span>Definir el precio para el empresario</span>
+        </div>
+        <div class="col s12 m12 l12 divider">.</div>
+        <div class="col s12 m12 l12">
+
+          <div class="input-field col s2">
+            <small for="sale-price">Precio de venta:</small>
+            <input type="number" name="priceventa" #priceventa="ngModel"
+                   [(ngModel)]="product.priceventa">
+            <span *ngIf="!priceventa.valid && priceventa.touched">
+                                    El precio de venta es obligatorio
+                            </span>
+          </div>
+
+          <div class="input-field col s1">
+            <small for="discountRate">% de Desc.</small>
+            <input name="pricediscount" #pricediscount="ngModel" [(ngModel)]="product.pricediscount"
+                   type="number">
+            <span *ngIf="!pricediscount.valid && pricediscount.touched">
+                                    El precio de venta es obligatorio
+                            </span>
+          </div>
+
+          <div class="input-field col s1">
+            <small for="iva">Iva:</small>
+            <input name="iva" #iva="ngModel" [(ngModel)]="product.iva" type="text">
+            <span *ngIf="!iva.valid && iva.touched">
+                                    El precio de venta es obligatorio
+                            </span>
+          </div>
+
+          <div class="input-field col s2">
+            <small for="discountRate">precio final:</small>
+            <input type="number"
+                   value="{{((product.priceventa - ((product.priceventa * product.pricediscount) / 100)) + ((product.priceventa - ((product.priceventa * product.pricediscount) / 100)) * product.iva)/100).toFixed()}}"
+                   readonly>
+          </div>
+
+          <div class="input-field col s3 m3 l3">
+            <small for="code">Codigo:</small>
+            <input type="text" name="code" #code [(ngModel)]="product.code">
+            <span *ngIf="!code.valid && code.touched">
+                                    El Codigo es obligatios
+                            </span>
+          </div>
+
+          <div class="input-field col s3 m3 l3">
+            <small for="code">puntos:</small>
+            <input type="text" name="points" #points [(ngModel)]="product.points">
+          </div>
+
+        </div>
+        <div class="col s12 m12 l12 center">
+          <span>Definir el precio para el mayorista</span>
+        </div>
+        <div class="col s12 m12 l12 divider">.</div>
+        <!-- mayorista -->
+        <div class="col s12 m12 l12">
+
+          <div class="input-field col s2">
+            <small for="sale-price">Precio de venta:</small>
+            <input type="number" name="priceventamayorista" #priceventamayorista="ngModel"
+                   [(ngModel)]="product.priceventamayorista">
+            <span *ngIf="!priceventamayorista.valid && priceventamayorista.touched">
+                                    El precio de venta es obligatorio
+                            </span>
+          </div>
+
+          <div class="input-field col s1">
+            <small for="discountRate">% de Desc.</small>
+            <input name="pricediscount" #pricediscountmayorista="ngModel" [(ngModel)]="product.pricediscountmayorista"
+                   type="number">
+            <span *ngIf="!pricediscountmayorista.valid && pricediscountmayorista.touched">
+                                    El precio de venta es obligatorio
+                            </span>
+          </div>
+
+          <div class="input-field col s2">
+            <small for="discountRate">precio final:</small>
+            <input type="number"
+                   value="{{(product.priceventamayorista - ((product.priceventamayorista * product.pricediscountmayorista) / 100)) + ((product.priceventamayorista - ((product.priceventamayorista * product.pricediscountmayorista) / 100)) * product.iva)/100}}"
+                   readonly>
+          </div>
+
+        </div>
+        <!-- closet mayorista -->
+
+
+        <div class="col s12 m12 l12 center">
+          <small class="teal-text">Para una mayor optimizacion en la tienda, por favor sube la fotografia
+            con una resolucion de 253 de ancho, por 170 de alto, en formato jpg
+          </small>
+        </div>
+        <div class="col s12 m12 l12">
+          <div class="file-field input-field col s4 m4 l4">
+            <div class="btn red blue col s3 m3 l3">
+              <span>Subir</span>
+              <input type="file" (change)="loadPhoto($event)">
+            </div>
+            <div class="file-path-wrapper col s9 m9 l9">
+              <input class="file-path validate white" type="text" placeholder="por favor carga una foto">
+            </div>
+          </div>
+
+          <div class="input-field col s4 m4 l4">
+            <select class="browser-default input-product" style="" (change)="getCategory($event)">
+              <option value="">Selecciona una categoria</option>
+              <option *ngFor="let item of categories" value="{{item.identity.low}}">
+                {{item.properties.categoria}}
+              </option>
+            </select>
+          </div>
+          <div class="input-field col s4 m4 l4">
+            <select class="browser-default input-product" style="" (change)="getsubCategory($event)">
+              <option value="">Selecciona una subcategoria</option>
+              <option *ngFor="let item of subcategories" value="{{item.identity.low}}">
+                {{item.properties.subcategoria}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col s12 m12 l12 center">
+          <h6>{{message}}</h6>
+        </div>
+
+        <div class="col s12 input-field right-align">
+          <button class="btn blue">Guardar</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

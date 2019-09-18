@@ -1,0 +1,246 @@
+
+@font-face {
+    font-family: 'rounded';
+    src: url("/../../fonts/Rouded/rounded.ttf");
+}
+
+#sidenav_2{
+    z-index: 5;
+    display: none;
+    height: 777px;
+    width: 100%;
+    position: fixed;
+    top: 147px;
+    left: 0px;
+    background: #ffffff;
+    opacity: 0.97;
+}
+
+@font-face {
+    font-family: "Marchy Script Demo";
+    src: url("/../../fonts/marchy_script/Marchy Script Demo.otf") format('otf');
+}
+
+#a{
+    font-size:14px;
+}
+
+#paralax{
+    height: 557px;
+}
+
+.text-parallax{
+    font-family: "Marchy Script Demo";
+    margin-top: 0.7em;
+    font-size: 177px;
+    color: white;
+}
+
+.close-know-me{
+    font-size: 27px;
+    color: white;
+    margin-top: 1em;
+    margin-right: 1em;
+    text-align: center;
+}
+
+div{
+    font-family: Rounded_Elegance;
+}
+
+a{
+    font-family: Rounded_Elegance;
+}
+
+span{
+    font-family: Rounded_Elegance;
+}
+
+#menu
+{
+
+    height: 144px;
+}
+
+#logo
+{
+    margin-top: 0.4em;
+    height: 120px;
+    width: 120px;
+}
+
+#mapa{
+    width: 100%;
+}
+
+.btn_menu
+{
+    margin-top: 5.3em;
+}
+
+#en{
+    background: #8F0000;
+}
+
+#contact{
+    margin-top:0px;
+    padding-left:0px;
+    width: 100%;
+}
+
+#mb{
+    color:white;
+    margin-top:10px;
+}
+
+.alt{
+    height: 27px;
+}
+
+#quienes{
+    color: grey;
+    font-family: Rounded_Elegance;
+}
+
+#vis{
+    margin-top: 2.1em;
+}
+
+#ss{
+    margin-left: 3.8em;
+    color: #000000;
+}
+
+#m{
+    margin-top: 2.7em;
+}
+
+#mm{
+    margin-top: 4.7em;
+}
+
+#conoceme-seccion{
+    z-index: 5;
+    display: none;
+    height: 777px;
+    width: 100%;
+    position: fixed;
+    top: 147px;
+    left: 0px;
+    background: #ffffff;
+    opacity: 0.97;
+}
+
+#world-map-markers {
+    height: 300px;
+}
+
+.mini-logo{
+    margin-left: 0.4em;
+}
+
+.borde{
+    border: 1px solid grey;
+}
+
+.text-contact{
+    margin-top: 4.7em;
+}
+
+.btn-submit{
+    border-radius: 4px!important;
+    margin-top: 1em!important;
+}
+
+h4{
+    font-family: Rounded_Elegance;
+}
+
+h5{
+    font-family: Rounded_Elegance;
+}
+
+p{
+    font-family: Rounded_Elegance;
+}
+
+input{
+
+    font-family: Rounded_Elegance!important;
+    border: 1px solid lightgrey!important;
+    border-radius: 4px!important;
+    height: 27px!important;
+}
+
+.text-footer{
+    margin-left: 5em;
+}
+
+.img-footer{
+    width: 57px;
+    height: 57px;
+}
+
+.footer{
+
+    width: 100%!important;
+    position: absolute;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    border-bottom: 1px solid lightgrey!important;
+
+}
+
+.text-footer-down{
+    margin-top: 3.7em!important;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .text-footer {
+        margin-left: 1em;
+        font-size: 9px;
+    }
+
+    .img-footer{
+        width: 27px;
+        height: 27px;
+    }
+
+    .text-footer-down{
+        margin-top: 1.7em!important;
+    }
+
+    .cardRead{
+        height: 237px;
+    }
+
+    .car{
+        width: 303.13px;
+        height: 403.5px;
+    }
+
+    #perfil-panel{
+        z-index: 2;
+        display: none;
+        position: fixed;
+        top: 77.7px;
+        left: -0.7%;
+        opacity: 0.97;
+    }
+
+    .animated {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+
+    .animated.infinite {
+        animation-iteration-count: infinite;
+    }
+
+    .animated.hinge {
+        animation-duration: 2s;
+    }
+
+}

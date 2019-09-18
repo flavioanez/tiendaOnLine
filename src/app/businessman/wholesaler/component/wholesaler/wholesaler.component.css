@@ -1,0 +1,17 @@
+input {
+    border: 1px solid grey!important;
+    border-radius: 4px!important;
+}
+
+select{
+    border: 1px solid grey!important;
+    border-radius: 4px!important;
+}
+
+.date{
+    margin-top: 3%;
+}
+
+.f{
+    width: 87%!important;
+}

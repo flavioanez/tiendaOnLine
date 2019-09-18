@@ -1,0 +1,14 @@
+input{
+    border:1px solid grey!important;
+    border-radius: 4px!important;
+    color: grey!important;
+}
+
+.guardar{
+    margin-top: 1.7%!important;
+    border-radius: 4px;
+}
+
+.tam{
+    font-size: 17px!important;
+}

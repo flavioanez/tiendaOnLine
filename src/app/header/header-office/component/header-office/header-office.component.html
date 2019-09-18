@@ -1,0 +1,170 @@
+<nav class="red darken-1" id="nav_bar">
+  <div class="nav-wrapper">
+    <a id="menu-movil" data-target="slide-out" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
+    <ul class="hide-on-med-and-down">
+      <li class="left personales" id="btn-perfil" (click)="optionsPerfil()"><a class="dropdown-button"><i class="material-icons left" id="iconos">portrait</i>Perfil</a></li>
+      <li class="left personales"><a (click)="options()"><i class="material-icons left">local_grocery_store</i>Compras</a></li>
+      <li><a (click)="options()">Mi organización<i class="material-icons left">device_hub</i></a></li>
+      <li class="left personales"><a [routerLink]="['/invoices']"><i class="material-icons left">payment</i>Pagos</a></li>
+      <li class="left personales"><a [routerLink]="['/businnessman']"><i class="material-icons left">home</i>Home</a></li>
+      <li class="left personales" (click)="docs()"><a id="documentos"><i class="material-icons left">local_library</i>Documentos</a></li>
+      <li class="right personales"><a (click)="closeSesion()"><i class="material-icons left"></i>Cerrar sesión</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id='options'>
+  <div class='row'>
+    <div class='col s12 alt'></div>
+
+    <div class='col s12'>
+
+      <ul>
+        <li><a [routerLink]="['/addbusinessman']" (click)="options()">Registrar empresario</a></li>
+        <li><a [routerLink]="['/network']" (click)="options()">Mi arbol</a></li>
+        <li><a [routerLink]="['/myUsersList']">Usuarios de mi arbol</a></li>
+        <li><a [routerLink]="['/store']" (click)="optionStore()">Tienda online</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id='docs'>
+  <div class='row'>
+    <div class='col s12 alt'></div>
+
+    <div class='col s2'>
+      <div class='card cardRead'>
+        <div class='card-image waves-effect waves-block waves-light'><a href='assets/pdf/presentacion-comercial.pdf' target="_blank"><img width='305' height='229' src='assets/png/Documento-PDF.png' class='responsive-img wp-post-image' alt='Ten Belles' title='Ten Belles' srcset='assets/png/Documento-PDF.png 305w, assets/png/Documento-PDF.png 300w, assets/png/Documento-PDF.png 768w, assets/png/Documento-PDF.png 800w' sizes='(max-width: 305px) 100vw, 305px'></a></div><div class='card-content'><p class='area'><a href='assets/pdf/presentacion-comercial.pdf' target="_blank">Presentación comercial</a>
+
+      </div>
+      </div>
+    </div>
+
+    <div class='col s2'>
+      <div class='card cardRead'>
+        <div class='card-image waves-effect waves-block waves-light'><a href='assets/pdf/compensacion.pdf' target="_blank"><img width='305' height='229' src='assets/png/Documento-PDF.png' class='responsive-img wp-post-image' alt='Ten Belles' title='Ten Belles' srcset='assets/png/Documento-PDF.png 305w, assets/png/Documento-PDF.png 300w, assets/png/Documento-PDF.png 768w, assets/png/Documento-PDF.png 800w' sizes='(max-width: 305px) 100vw, 305px'></a></div><div class='card-content'><p class='area'><a href='assets/pdf/compensacion.pdf' target="_blank">Plan De Compensación</a>
+
+      </div>
+      </div>
+    </div>
+    <div class='col s2'>
+      <div class='card cardRead'>
+        <div class='card-image waves-effect waves-block waves-light'><a href='assets/pdf/plandeaccion.pdf' target="_blank"><img width='305' height='229' src='assets/png/Documento-PDF.png' class='responsive-img wp-post-image' alt='Ten Belles' title='Ten Belles' srcset='assets/png/Documento-PDF.png 305w, assets/png/Documento-PDF.png 300w, assets/png/Documento-PDF.png 768w, assets/png/Documento-PDF.png 800w' sizes='(max-width: 305px) 100vw, 305px'></a></div><div class='card-content'><p class='area'><a href='assets/pdf/plandeaccion.pdf' target="_blank">Plan De Acción<br><br></a>
+
+      </div>
+      </div>
+    </div>
+    <div class='col s2'>
+      <div class='card cardRead'>
+        <div class='card-image waves-effect waves-block waves-light'><a href='assets/pdf/camara.pdf' target="_blank"><img width='305' height='229' src='assets/png/Documento-PDF.png' class='responsive-img wp-post-image' alt='Ten Belles' title='Ten Belles' srcset='assets/png/Documento-PDF.png 305w, assets/png/Documento-PDF.png 300w, assets/png/Documento-PDF.png 768w, assets/png/Documento-PDF.png 800w' sizes='(max-width: 305px) 100vw, 305px'></a></div><div class='card-content'><p class='area'><a href='assets/pdf/camara.pdf' target="_blank">Representación Legal<br><br></a>
+
+      </div>
+      </div>
+    </div>
+
+    <div class='col s2'>
+      <div class='card cardRead'>
+        <div class='card-image waves-effect waves-block waves-light'><a href='assets/pdf/dian.pdf' target="_blank"><img width='305' height='229' src='assets/png/Documento-PDF.png' class='responsive-img wp-post-image' alt='Ten Belles' title='Ten Belles' srcset='assets/png/Documento-PDF.png 305w, assets/png/Documento-PDF.png 300w, assets/png/Documento-PDF.png 768w, assets/png/Documento-PDF.png 800w' sizes='(max-width: 305px) 100vw, 305px'></a></div><div class='card-content'><p class='area'><a href='assets/pdf/dian.pdf' target="_blank">Número de Identificación Tributaria<br><br></a>
+
+      </div>
+      </div>
+    </div>
+
+    <div class='col s2'>
+      <div class='card cardRead'>
+        <div class='card-image waves-effect waves-block waves-light'><a href='../../../assets/pdf/Terminos.pdf' target="_blank"><img width='305' height='229' src='assets/png/Documento-PDF.png' class='responsive-img wp-post-image' alt='Ten Belles' title='Ten Belles' srcset='assets/png/Documento-PDF.png 305w, assets/png/Documento-PDF.png 300w, assets/png/Documento-PDF.png 768w, assets/png/Documento-PDF.png 800w' sizes='(max-width: 305px) 100vw, 305px'></a></div><div class='card-content'><p class='area'><a href='assets/pdf/Terminos.pdf' target="_blank">Términos & Condiciones<br><br></a>
+      </div>
+      </div>
+    </div>
+    <div class='col s12 m12 l12 alt right-align'><a (click)="docs()"
+                                                    class="close-know-me btn-floating z-depth-2 cesta-view">x</a>
+    </div>
+  </div>
+</div>
+<div id='perfil-panel'>
+  <div class='row'>
+    <div class="col s6 m3 7">
+      <div id="profile-card" class="card car">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img src='../../../assets/img/user-small.jpg' class='activator circle'>
+        </div>
+        <div class="card-content">
+          <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+            <i class="material-icons">edit</i>
+          </a>
+          <a class="btn-floating btn-move-up waves-effect waves-light blue accent-2 z-depth-4 right" [routerLink]="['/modify']" (click)="modifyphoto()">
+            <i class="material-icons">photo_camera</i>
+          </a>
+          <span class="card-title activator grey-text text-darken-4" style="font-size: 20px; font-family: rounded;">{{user.name}} {{user.lastname1}}</span>
+          <p>
+            <i class="material-icons">perm_identity</i> {{user.usuario}}</p>
+          <p>
+            <i class="material-icons">perm_phone_msg</i> {{user.telephone}}</p>
+          <p>
+            <i class="material-icons">email</i> {{user.email}}</p>
+        </div>
+        <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">{{user.name}} {{user.lastname1}}
+                          <i class="material-icons right">close</i>
+                      </span>
+          <p>
+            <i class="material-icons">perm_identity</i> {{user.usuario}}</p>
+          <p>
+            <i class="material-icons">perm_phone_msg</i> +57 {{user.telephone}}</p>
+          <p>
+            <i class="material-icons">email</i> {{user.email}}</p>
+          <p>
+            <i class="material-icons">cake</i> {{user.date}}
+          </p>
+          <p>
+          </p>
+          <p>
+            <i class="material-icons">build</i><a [routerLink]="['/modifyData']">MODIFICAR</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- menu movil -->
+<ul id="slide-out" class="sidenav">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <img src="../../../assets/img/home-movil.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="../../../assets/img/logo_all_app.png"></a>
+      <span class="white-text name">Del campo a tu mesa</span>
+      <span class="white-text email">comercial@allinapp.com.co</span>
+    </div>
+  </li>
+  <li>
+    <a [routerLink]="['/store']"><i class="material-icons">shop</i>Tienda on line</a>
+  </li>
+  <li><a [routerLink]="['/addbusinessman']"><i class="material-icons">content_copy</i>Registrar empresario</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li><a [routerLink]="['/network']"><i class="material-icons">device_hub</i>Mi arból</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li><a [routerLink]="['/myUsersList']"><i class="material-icons">device_hub</i>Mi lista de usuarios</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li><a [routerLink]="['/invoices']"><i class="material-icons">payment</i>Pagar facturas</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li><a [routerLink]="['/businnessman']"><i class="material-icons">home</i>home</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li><a (click)="closeSesion()"><i class="material-icons">exit_to_app</i>Cerrar sesión</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+</ul>

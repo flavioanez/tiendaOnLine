@@ -1,0 +1,130 @@
+.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+}
+
+.node text { font: 12px sans-serif; }
+
+.node {
+    cursor: pointer;
+}
+
+input{
+    border: 1px solid grey!important;
+    border-radius: 4px!important;
+}
+
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+}
+
+p{
+    font-family: Rounded_Elegance;
+}
+
+a{
+    margin-left: 5.7%;
+}
+
+span{
+    font-size: 21px;
+    margin-left: 0.7em;
+}
+
+i{
+    font-family: Rounded_Elegance;
+}
+
+a{
+    font-family: Rounded_Elegance;
+}
+
+div{
+    font-family: Rounded_Elegance;
+}
+
+.cardRead{
+    height:27%;
+}
+
+#pageModuloUser{
+    display: none;
+}
+
+#img-loader{
+    margin: -225px 0px 0px -135px;
+    margin: auto;
+    width: 350px;
+    height: 270px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+#img-loading{
+    width: 350px;
+    height: 270px;
+}
+
+#arbol{
+    background: #f5f5f5;
+    height: 577px;
+}
+
+#a{
+    font-size: 14px;
+}
+
+#sidenav{
+    z-index: 2;
+    display: none;
+    height: 777px;
+    width: 100%;
+    position: fixed;
+    top: 81px;
+    left: 0px;
+    background: #ffffff;
+    opacity: 0.97;
+}
+
+.alt{
+    height: 27px;
+}
+
+#targe{
+    margin-left: 2em;
+}
+
+#perfil-panel{
+    z-index: 2;
+    display: none;
+    position: fixed;
+    top: 81px;
+    left: 0px;
+    opacity: 0.97;
+}
+
+.car{
+    width: 303.13px;
+    height: 403.5px;
+}
+
+.mini-logo{
+    margin-right: 0.7em;
+}
+
+#volver{
+    display:none;
+}
+
+@media only screen and (max-width: 600px) {
+    #volver{
+        display:block;
+    }
+}

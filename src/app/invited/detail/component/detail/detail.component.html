@@ -1,0 +1,130 @@
+<div class="container movil white">
+  <br>
+  <a href="#" id="menu-movil" data-target="slide-out" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+  <div class="row">
+    <div class="col s9 m9 l9 center">
+      <input type="search" id="searchProductMovil" class="searchProduct" [(ngModel)]="buscador"
+             placeholder="Buscar..." (click)="openSearchMovil()">
+    </div>
+    <div class="col s3 m3 l3">
+      <a class="black-text carro-modal cesta-view" [routerLink]="['/cartInvited']">
+        <i class="material-icons black-text left">shopping_cart</i>
+        <small class="w3">({{totalUnits}})</small>
+        <br>
+        <span id="total" style="color: black!important;">{{totalPurchase |number}}</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row" id="content-detailed">
+
+    <div class='col s12 m5 l5'>
+
+      <div class="col s12 m12 l12" id='photo-large'>
+        <img src="../../../assets/img/img-small/{{product.photo}}" class='responsive-img materialboxed'
+             width='750'>
+      </div>
+    </div>
+
+    <div class='col s12 m4 l4'>
+
+      <h4 class='letter-title'>{{product.title}}</h4>
+
+      <h5>{{product.pricefinal|number}}</h5>
+      <h5><s>{{product.priceventa|number}}</s></h5>
+      <h6>Descuento:{{product.pricediscount}}%</h6>
+      <small>{{product.descriptiondetailed}}</small>
+
+
+      <div class='col s12 m12 l12' id='div-btn-shpping'>
+        <div class='col s12 m5 l5' style='height: 100px;'>
+
+          <a class='quitar' id='quitar' (click)="removeQuantity(product.code)">
+            <div class='col s4 center btn-b btn-quantity'><i class='material-icons'
+                                                             style="margin-left: -0.4em">remove</i></div>
+          </a>
+          <div class='col s4 center btn-quantity' style='border:1px solid lightgrey; height:34px;'>
+            <input type='number' value='{{quantity}}' class='cajaInput' readonly>
+          </div>
+          <a class='agregar' id='agregar' (click)="addQuantity(product.code)">
+            <div class='col s4 center btn-b2 btn-quantity'><i class='material-icons'
+                                                              style="margin-left: -0.4em">add</i></div>
+          </a>
+
+        </div>
+        <div class='col s12 m7 l7'>
+          <li>
+            <a class='btn-floating waves-effect cyan idPro' (click)="addCart(product.code)">
+              <i class='material-icons'>add_shopping_cart</i>
+            </a>
+            <a class='btn-floating btn-large waves-effect waves-light red accent-2 center'
+               title='Valor en Puntos'>
+              {{product.points}}
+              <small style='font-size: 9px;'>Ptos</small>
+            </a>
+          </li>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="cart-body searchMovil" id="searchProMovil">
+  <div class="vista-cesta">
+    <div class="container" style="width: 100%!important;">
+      <div class="row">
+        <div class="col s12 m12 l12 center">
+          <div class='col s1 m1 l1 alt right' style="margin-top: -4.3%;margin-left: -17%!important;"><a (click)="openSearchMovil()"
+                                                                                                        class="close-know-me btn-floating z-depth-2 cesta-view teal-background">x</a>
+          </div>
+        </div>
+        <div class="col s12 m12 l12 divider">.</div>
+        <div class="col s12 m12 l12" style="margin-left: 5%;">
+          <div>
+            <ul class="collection" style="margin-left: -7%">
+              <li class="collection-item" *ngFor="let item of listaprodAux|searchProduct:buscador">
+                <div (click)="buscar(item.code)">{{item.title}}<a class="secondary-content"><i class="material-icons">search</i></a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul id="slide-out" class="sidenav">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <img src="../../../assets/img/home-movil.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="../../../assets/img/logo_all_app.png"></a>
+      <span class="white-text name">Del campo a tu mesa</span>
+      <span class="white-text email">comercial@allinapp.com.co</span>
+    </div>
+  </li>
+  <li><a [routerLink]="['/unete']"><i class="material-icons">person_add</i>Unete</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li><a [routerLink]="['/invited']"><i class="material-icons">arrow_back</i>Regresar a la tienda</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li><a [routerLink]="['/InvoicesFromTheStore']"><i class="material-icons">content_copy</i>Pagar compra</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li><a [routerLink]="['/home']"><i class="material-icons">exit_to_app</i>Salir</a></li>
+  <li>
+    <div class="divider"></div>
+  </li>
+</ul>

@@ -1,0 +1,542 @@
+.browser-default{
+    border: 1px solid black!important;
+    border-radius: 4px!important;
+}
+
+#nav_bar
+{
+    height: 84px;
+}
+
+.personales
+{
+    margin-top: 0.7em;
+
+}
+
+a{
+    margin-left: 1.7%;
+}
+
+body{
+    margin: auto;
+    height: 100%;
+}
+
+.cardRead{
+    height: 27%;
+}
+
+#pageModuloUser{
+    display: none;
+}
+
+#paralax{
+    height: 500px;
+}
+
+#img-loader{
+    margin: -225px 0px 0px -135px;
+    margin: auto;
+    width: 350px;
+    height: 270px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+#img-loading{
+    width: 350px;
+    height: 270px;
+}
+
+.quincenas-rango-0 {
+    fill: #0df200;
+    fill-opacity:0;
+    stroke-width:2px;
+    stroke: #0df200;
+}
+
+#volver{
+    display: none;
+}
+
+.board-img{
+    width:45px;
+    height:45px;
+}
+
+
+.quincenas-rango-1 {
+    fill: #f23303;
+    fill-opacity:0;
+    stroke-width:2px;
+    stroke: #ff0004;
+}
+
+.quincenas-rango-2 {
+    fill: #00e5ff;
+    fill-opacity:0;
+    stroke-width:2px;
+    stroke: #00e5ff;
+}
+
+.quincenas-rango-3 {
+    fill: #eeff41;
+    fill-opacity:0;
+    stroke-width:2px;
+    stroke: #eeff41;
+}
+
+mini-logo-2{
+    margin-right: 0.7em;
+}
+
+#contenedor{
+    width:100%;
+}
+
+.mini-logo{
+    margin-right: 0.7em;
+}
+
+#di{
+    margin-top:3.3em;
+}
+
+#log_card{
+    font-size:45px;
+}
+
+p{
+    font-size:15px;
+}
+
+#div{
+    border:1px solid #e0e0e0;
+    height:37px;
+    background:#b71c1c;
+    text-align: center;
+    color:white;
+    border-radius: 4px;
+}
+
+#questionproduct {
+    position: absolute;
+    left: 43%;
+    top: 20%;
+    width: 70%;
+    color: white;
+    font-family: "DK Crayon Crumble";
+    font-size: 57px;
+}
+
+#paralax{
+    height: 400px;
+}
+
+a{
+    font-family: Rounded_Elegance!important;
+}
+
+div{
+    font-family: Rounded_Elegance;
+}
+
+button{
+    font-family: Rounded_Elegance!important;
+}
+
+#HTMLtoPDF{
+    border:1px solid black;
+    width: 67%;
+}
+
+h5{
+    font-family: Rounded_Elegance!important;
+}
+
+#d{
+    border-right: 1px solid black;
+}
+
+.b2{
+    border:1px solid black;
+}
+
+.bor{
+    border:1px solid white;
+}
+
+.mCS-my-theme.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: #b71c1c; }
+.mCS-my-theme.mCSB_scrollTools .mCSB_draggerRail{ background-color: #b71c1c; }
+
+#f_contenido{
+    width: 85%;
+}
+
+#font-card{
+    margin-top: 1em!important;
+}
+
+#a{
+    font-size:14px;
+}
+
+#b{
+    border-bottom: 1px solid black;
+}
+
+#h4{
+    font-family: Rounded_Elegance;
+}
+
+.elegance{
+    font-family: Rounded_Elegance;
+}
+
+
+#sidenav{
+    z-index: 2;
+    display: none;
+    height: 777px;
+    width: 100%;
+    position: fixed;
+    top: 81px;
+    left: 0px;
+    background: #ffffff;
+    opacity: 0.97;
+}
+
+#perfil-panel{
+    z-index: 2;
+    display: none;
+    position: fixed;
+    top: 75.7px;
+    left: 0px;
+    opacity: 0.97;
+}
+
+.alt{
+    height: 27px;
+}
+
+#targe{
+    margin-left: 2em;
+}
+
+#activeUser{
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+.tablero{
+    width: 95%;
+    height: 397px;
+    display: none;
+}
+
+.tablero_2{
+    width: 95%;
+    height: 397px;
+    border: 1px solid black;
+    display: block;
+}
+
+#im{
+    height: 204px;
+    margin-top: 0.9em;
+    border:1px solid #eeeeee;
+}
+
+.asistir{
+    margin-top: 1.2em;
+}
+
+.targeta{
+    width: 234px;
+    height: 220px;
+}
+
+#datosCuenta{
+    margin-left: 4em;
+    border: 1px solid #ffffff;
+    color: black;
+}
+
+#ul{
+    display: none;
+}
+
+#datosNombre{
+    margin-left: 4em;
+    border: 1px solid #ffffff;
+    color: black;
+}
+
+#datosDir{
+    margin-left: 4em;
+    border: 1px solid #ffffff;
+    color: black;
+}
+
+#datosCuenta2{
+    margin-left: 4em;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+#guardar{
+    margin-left: 20em;
+    border-radius: 4px;
+}
+
+#guardar2{
+    margin-left: 27em;
+    border-radius: 4px;
+}
+
+.h5{
+    margin-left: 1em;
+    font-family: Rounded_Elegance;
+}
+
+.coiciden{
+    margin-top: 8.7em;
+}
+
+.car{
+    width: 303.13px;
+    height: 403.5px;
+}
+
+.letra-14{
+    font-size: 7px;
+}
+
+.u{
+    height: 70px;
+}
+
+#bord{
+    border: 1px solid #FFFFFF;
+    color: black;
+}
+
+#input-name{
+    border: 1px solid #FFFFFF;
+    color: black;
+}
+
+#input-Dir{
+    border: 1px solid #FFFFFF;
+    color: black;
+}
+
+#e-correo{
+    height:200px;
+    margin-left: 4em;
+}
+
+#slider
+{
+    width: 100%;
+    z-index: -5;
+}
+
+.th{
+    background: #B71C1C;
+    color: white;
+    font-family: Rounded_Elegance!important;
+}
+
+h4{
+    font-family: Rounded_Elegance;
+}
+
+h5{
+    font-family: Rounded_Elegance;
+}
+
+#modificar{
+    margin-left: 0.2em;
+}
+
+#cestaTabla{
+    width: 90%;
+}
+
+#searchProduct{
+    border:1px solid lightgrey;
+    width: 400px;
+    border-radius:4px;
+    background: white;
+    color:black;
+}
+
+#searchUser{
+    border:1px solid lightgrey;
+    width: 400px;
+    border-radius:4px;
+    background: white;
+    color:black;
+}
+
+#datosEmail{
+    margin-left: 4em;
+    border: 1px solid #ffffff;
+    color: black;
+}
+
+#caja-misCompras{
+    margin-top: 2em;
+}
+
+.exp2{
+    margin-left:0.1em;
+}
+
+.serif{
+    font-family: Rounded_Elegance;
+}
+
+input{
+    border: 1px solid grey!important;
+    border-radius: 4px!important;
+    background: #FFFFFF!important;
+}
+
+button{
+    font-family: Rounded_Elegance!important;
+    border-radius: 4px!important;
+}
+
+@media only screen and (max-width: 600px) {
+    #datosCuenta{
+        margin-left: 1em;
+        border: 1px solid #ffffff;
+        color: black;
+    }
+
+    #volver{
+        display: block;
+    }
+
+    .letra-movil{
+        font-size: 4px;
+    }
+
+    #datosEmail{
+        margin-left: 0.3em;
+        border: 1px solid #ffffff;
+        color: black;
+    }
+
+    #input-name{
+        margin-left: 1em;
+    }
+
+    #input-Dir{
+        margin-left: 1em;
+    }
+
+    #modificar{
+        margin-left: 3.7em;
+    }
+
+    #modificar-dir{
+        margin-left: 3.7em;
+    }
+
+    #modificar-user{
+        margin-left: 3.2em;
+    }
+
+    #modificar-email{
+        margin-left: 3.2em;
+    }
+
+    #modificar-password{
+        margin-left: 3.2em;
+    }
+
+    #datosNombre{
+        margin-left: 1em;
+        border: 1px solid #ffffff;
+        color: black;
+    }
+
+    #datosDir{
+        margin-left: 1em;
+        border: 1px solid #ffffff;
+        color: black;
+    }
+
+    #datosCuenta2{
+        margin-left: 1em;
+        border: 1px solid grey;
+        border-radius: 4px;
+    }
+
+    #datosCuenta3{
+        margin-left: 1em;
+        border: 1px solid grey;
+        border-radius: 4px;
+    }
+
+    #guardar{
+        margin-left: 7em;
+        border-radius: 4px;
+    }
+
+    #guardar2{
+        margin-left: 7em;
+        border-radius: 4px;
+    }
+
+    #e-correo{
+        height:50px;
+        margin-left: 1em;
+    }
+
+    #caja-misCompras{
+        margin-top: 2em;
+    }
+
+    #HTMLtoPDF{
+        border:1px solid black;
+        width: 100%;
+    }
+
+    #ul{
+        display: block;
+    }
+
+    .teal-background{
+        background: #00BFA5!important;
+    }
+
+    i{
+        font-family: Rounded_Elegance;
+    }
+
+    li{
+        font-family: Rounded_Elegance;
+    }
+
+    .exp{
+        margin-left:0.7em;
+    }
+
+    .exp2{
+        margin-left:0.7em;
+    }
+
+    a{
+        font-family: Rounded_Elegance!important;
+    }
+
+}

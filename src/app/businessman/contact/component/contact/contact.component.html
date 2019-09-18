@@ -1,0 +1,111 @@
+<nav class="grey lighten-5" id="menu">
+  <div class="nav-wrapper">
+
+    <a [routerLink]="['/home']" class="brand-logo center"><img src="assets/png/LOGOAIA.png" id="logo"></a>
+
+    <a href="#" data-activates="slide-out" class="btn-menu hide-on-large-only" id="Menu"><i class="material-icons black-text mini-logo">menu</i></a>
+
+    <ul class="hide-on-med-and-down">
+      <li class="right"><a [routerLink]="['/unete']" class="black-text"><i class="material-icons right">person_add</i>Únete</a></li>
+      <li class="right"><a [routerLink]="['/login']" class="black-text"><i class="material-icons left">account_circle</i>Ingresar</a></li>
+      <li class="left btn_menu"><a (click)="openContact()" class="black-text conoceme"><i class="material-icons left">menu</i>Conóceme</a></li>
+    </ul>
+
+  </div>
+</nav>
+<div class="parallax-container" id="paralax">
+  <h1 class="center text-parallax" *ngIf="false">Contacto</h1>
+  <div class="parallax"><img src="../../assets/img/img-parallax.jpg"></div>
+</div>
+<div class="section white">
+  <div class="row container">
+
+  </div>
+  <div class="container">
+    <div class="row section">
+
+      <div class="col s12 m6 l6">
+
+        <div class="col s12 m12 l12">
+          <h4>All in App</h4>
+        </div>
+        <div class="col s12 m12 l12">
+          <form [formGroup]="formContacto" (ngSubmit)="sendContact()">
+            <input type="text" name="name" id="name" [formControl]="formContacto.controls['name']" placeholder="Nombre:">
+
+
+            <input type="email" name="email" id="email" [formControl]="formContacto.controls['email']" placeholder="E-mail:">
+
+
+            <input type="text" name="affair" id="affair" [formControl]="formContacto.controls['affair']" placeholder="Asunto:">
+
+            <textarea lang="fr" spellcheck="true" placeholder="Mensaje:" [formControl]="formContacto.controls['message']" maxlength="247" style="height: 137px"></textarea>
+            {{message}}
+            <button class="btn red darken-4 white-text right btn-submit">Enviar</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="col s12 m6 l6">
+
+        <div class="col s12 m6 l6 center text-contact">
+          <h5>Nuestra Dirección</h5>
+          <p>Carrera 53 #132-140 Lote 19<br>
+            Villa Campestre<br>
+            (Oficina administrativa)<br>
+            comercial@allinapp.com.co</p>
+        </div>
+        <div class="col s12 m6 l6 center text-contact">
+          <h5>Nuestra Dirección</h5>
+          <p>Tel:+57 (3)3093733<br>
+            Cel: +57 3004771057<br>
+            Cra 44 #9-99<br> (Centro de operaciones)</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <footer class="page-footer foter grey lighten-5" id="contact">
+
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+
+          <div class="col s12 m6 l4 center text-footer-down">
+            <span class="black-text text-footer ">© 2018 <a href="../index.php" class="black-text" target="_blank">All in App</a></span>
+          </div>
+
+          <div class="col s12 m6 l4 text-footer-down center">
+
+            <div style="margin-left: 4em;">
+              <img src="assets/png/i-facebook.png" class="img-footer">
+              <img src="assets/png/i-whatsapp.png" class="img-footer">
+              <img src="assets/png/i-youtube.png" class="img-footer">
+            </div>
+          </div>
+          <!--<a class="white-text right" href="http://www.android-kiosk.com/privacy-and-cookie-policy/">Privacy &amp; Cookies Policy</a>-->
+          <a href="//www.iubenda.com/privacy-policy/7904956" class="iubenda-nostyle no-brand iubenda-embed black-text right" title="Privacy Policy"></a><script type="text/javascript" src="//cdn.iubenda.com/iubenda_i_badge.js"></script>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="conoceme-seccion">
+
+    <div class="row">
+      <div class='col s12 alt right-align'><a (click)="openContact()" class="close-know-me btn-floating z-depth-2 conoceme red darken-4">x</a></div>
+      <div class='col s12 alt'></div>
+
+      <div class="col m3 l4 center" id="m"><div class="feature-icon"><h5 id="quienes">MISIÓN</h5></div><div class="feature-description" id="des">Somos una Plataforma interactiva de Tienda online Multinivel, que conecta al productor del Campo directamente con el consumidor final a través de una App, que busca innovar los mecanismos tradicionales del abastecimiento de la canasta familiar en los hogares, generando una oportunidad de negocio a nuestros consumidores a través de la venta directa y mercadeo en red, con un enfoque social reflejado en nuestro sector rural.</div></div>
+
+      <div class="col m3 l4 center" id="m"><div class="feature-icon"></div><div class="feature-title"><h5 id="quienes">VALORES Y PRINCIPIOS</h5></div><div class="feature-description" id="vis"><strong>Los valores de All in App son:</strong><br>-Servicio.<br>-Respeto.<br>-Confianza.<br>-Lealtad.<br>-Honestidad.<br>-Responsabilidad.<br><strong>Los principios de All in App son:</strong><br>-Tratar a todas las personas como quiero ser tratado.<br>-Desarrollar al máximo el talento humano.<br>-Trabajo en equipo.<br>-Impulsar al progreso de nuestra comunidad.</div></div>
+
+      <div class="col l3 center" id="m"><div class="feature-icon"></div><h5 id="quienes">VISIÓN</h5><div class="feature-description" id="vis">La visión de All in App es para los próximos 3 años, cautivar por encima de la competencia, la lealtad de los consumidores de cada una de nuestras sedes, la preferencia de nuestros proveedores rurales y urbanos y el orgullo de los empleado y accionistas. Consolidarnos como una empresa solida con participación de las marcas comerciales propias.</div></div>
+
+    </div>
+
+  </div>

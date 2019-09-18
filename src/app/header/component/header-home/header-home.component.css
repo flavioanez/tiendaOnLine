@@ -1,0 +1,188 @@
+#menu {
+    position: fixed;
+    height: 77px;
+    z-index: 7;
+}
+
+#logo {
+    margin-top: 0.2em;
+    height: 67px;
+    width: 67px;
+}
+
+#login {
+    z-index: 107!important;
+    display: none;
+    height: 777px;
+    width: 100%;
+    position: fixed;
+    top: 81px;
+    left: 0px;
+    background-image: url("/../../../assets/img/loginew.jpg");
+    background-size: 100%;
+}
+
+.close-know-me {
+    font-size: 27px;
+    color: white;
+    margin-top: 1em;
+    margin-right: 1em;
+    text-align: center;
+}
+
+#test2{
+    height: 309px;
+}
+
+#test3{
+    height: 309px;
+}
+
+.tab1 {
+    background: black;
+    border-bottom-left-radius: 4px;
+}
+
+.tab2 {
+    background: #ffffff;
+    border-bottom-right-radius: 4px;
+    border-bottom: 1px solid #b0bec5;
+}
+
+.tab3 {
+    background: #b71c1c;
+    border-bottom-right-radius: 4px;
+}
+
+.storehome {
+    cursor: pointer;
+}
+
+#nav_bar {
+    height: 84px;
+}
+
+#options {
+    z-index: 2;
+    display: none;
+    height: 777px;
+    width: 100%;
+    position: fixed;
+    top: 81px;
+    left: 0px;
+    background: #ffffff;
+    opacity: 0.97;
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+    animation-duration: 2s;
+}
+
+input {
+    border: 0.7px solid grey !important;
+    border-radius: 4px !important;
+    color: white!important;
+}
+
+.texthome{
+    margin-top: -7%!important;
+}
+
+select {
+    border: 0.7px solid grey !important;
+    border-radius: 4px !important;
+    margin-top: 0.2em;
+}
+
+#searchProduct {
+    border: 1px solid lightgrey;
+    width: 400px;
+    border-radius: 4px;
+    background: white;
+    color: black;
+}
+
+.animated.flipOutX,
+.animated.flipOutY,
+.animated.bounceIn,
+.animated.bounceOut {
+    animation-duration: .75s;
+}
+
+@keyframes bounceInRight {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    from {
+        opacity: 0;
+        transform: translate3d(3000px, 0, 0);
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px, 0, 0);
+    }
+    75% {
+        transform: translate3d(10px, 0, 0);
+    }
+    90% {
+        transform: translate3d(-5px, 0, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.bounceInRight {
+    animation-name: bounceInRight;
+}
+
+@keyframes bounceOutRight {
+    20% {
+        opacity: 1;
+        transform: translate3d(-20px, 0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(2000px, 0, 0);
+    }
+}
+
+.bounceOutRight {
+    animation-name: bounceOutRight;
+}
+
+input {
+    border: 0.7px solid grey !important;
+    border-radius: 4px !important;
+}
+
+select {
+    border: 0.7px solid grey !important;
+    border-radius: 4px !important;
+    margin-top: 0.2em;
+}
+
+#searchProduct {
+    border: 1px solid lightgrey;
+    width: 400px;
+    border-radius: 4px;
+    background: white;
+    color: black;
+}
+
+@media only screen and (max-width: 700px) {
+
+}

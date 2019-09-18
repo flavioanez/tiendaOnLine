@@ -1,0 +1,56 @@
+<div class="container" style="width: 100%!important;">
+  <div class="row">
+
+    <div class="col s12 m12 l12">
+      <div class="col s12 m6 l6 input-field date">
+        <input type="text" class="datepicker" placeholder="Fecha de inicio:"
+               (change)="getDateBehin($event)">
+      </div>
+
+      <div class="col s12 m6 l6 input-field date">
+        <input type="text" class="datepicker" placeholder="Fecha de culminación:"
+               (change)="getDateEnd($event)">
+      </div>
+      <div class="col s12 m12 l12">
+        <button class="btn blue" (click)="searchComision()">Ver reporte</button>
+        <span style="margin-left: 27%!important;margin-top: 2%!important;">{{message}}</span>
+      </div>
+
+    </div>
+
+    <div class="col s12 m12 l12">
+      <table class="responsive-table">
+        <thead>
+        <tr>
+          <th>Fecha</th>
+          <th class="white-text">data</th>
+          <th class="white-text">data</th>
+          <th class="white-text">data</th>
+          <th class="white-text">data</th>
+          <th class="white-text">data</th>
+          <th class="white-text">data</th>
+          <th class="white-text">data</th>
+          <th>Visualizar</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let item of comision">
+          <td>{{item.fecha}}</td>
+          <td class="white-text">.</td>
+          <td class="white-text">.</td>
+          <td class="white-text">.</td>
+          <td class="white-text">.</td>
+          <td class="white-text">.</td>
+          <td class="white-text">.</td>
+          <td class="white-text">.</td>
+          <td>
+            <a class="waves-effect waves-light btn-small blue color-icon"
+               [routerLink]="['/comision/',item.fecha]"><i class="material-icons left white-text">visibility</i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

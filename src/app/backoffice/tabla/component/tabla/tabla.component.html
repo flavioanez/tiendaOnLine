@@ -1,0 +1,63 @@
+<nav class="blue">
+    <div class="nav-wrapper">
+        <ul class="hide-on-med-and-down">
+            <li class="left"><a (click)="open('home')" [routerLink]="['/backoffice']"><i class="material-icons left">home</i>Home</a>
+            </li>
+            <li class="right personales"><a (click)="closeSesion()"><i class="material-icons left"></i>Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="body-collapse">
+
+    <ul class="collapsible" id="collapse">
+
+        <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Inventario</div>
+            <div class="collapsible-body" (click)="open('list-only')"><span>Lista individual</span></div>
+            <div class="collapsible-body" (click)="open('all-list')"><span>Lista consolidada</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">insert_invitation</i>MLM</div>
+            <div class="collapsible-body" (click)="open('commission')"><span>Ejecutar</span></div>
+            <div class="collapsible-body" (click)="open('history-commission')"><span>historial de comisión</span></div>
+            <div class="collapsible-body"><span>Historial de compras</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">insert_invitation</i>Mayoristas</div>
+            <div class="collapsible-body" (click)="open('search-wholesaler')"><span>Buscar</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">insert_invitation</i>Empresarios</div>
+            <div class="collapsible-body" (click)="open('businessman')"><span>Buscar</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">queue_music</i>Cofiguración</div>
+            <div class="collapsible-body" (click)="open('create-category')"><span>Crear catetorias</span></div>
+            <div class="collapsible-body" (click)="open('create-product')"><span>Crear producto</span></div>
+            <div class="collapsible-body" (click)="open('edit-product')"><span>Editar producto</span></div>
+            <div class="collapsible-body" (click)="open('tope')"><span>Tope de compras</span></div>
+            <div class="collapsible-body" (click)="open('password-general')"><span>Password general</span></div>
+        </li>
+
+    </ul>
+
+</div>
+
+<div id="body-content">
+
+    <app-dashboard *ngIf="visor"></app-dashboard>
+    <app-list-consolidated-only *ngIf="listConsolidatedOnly"></app-list-consolidated-only>
+    <app-list-consolidated *ngIf="listConsolidated"></app-list-consolidated>
+    <app-commission *ngIf="commission"></app-commission>
+    <app-history-commission *ngIf="historyCommission"></app-history-commission>
+    <app-search-wholesaler *ngIf="searchWholesaler"></app-search-wholesaler>
+    <app-search-businessman *ngIf="searchBusinessman"></app-search-businessman>
+    <app-create-category *ngIf="createCategory"></app-create-category>
+    <app-create-product *ngIf="createProduct"></app-create-product>
+    <app-search-product *ngIf="editProduct"></app-search-product>
+    <app-tope-purchase *ngIf="tope"></app-tope-purchase>
+    <app-password-general *ngIf="passwordGeneral"></app-password-general>
+
+</div>

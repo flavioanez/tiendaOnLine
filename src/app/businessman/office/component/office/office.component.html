@@ -1,0 +1,163 @@
+<app-header-office></app-header-office>
+<div class="container" id="contenedor">
+  <div class="row">
+
+    <div class="col s12 m12 l12" style="margin-top: 1em; border:1px solid #eeeeee;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="exp flow-text">{{user.properties.name}} {{user.properties.lastname1}} {{user.properties.lastname2}}</h4>
+        </div>
+        <div class="panel-body">
+          <p class="exp2">Tu experiencia de uso de la plataforma</p>
+          <div class="progress red darken-1">
+            <div class="indeterminate red darken-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m3 l4" id="di">
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header">Clientes mayoristas<b class="right">({{quantityMayorista}})</b></div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><button class="btn red darken-1 white-text submit-cliente" style="margin-top: 0.3em; " [routerLink]="['/mayorista']">Registrar</button><b class="right text-r-mayorista">Registrar cliente mayorista</b></div>
+          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"></div>
+          <div class="collapsible-body"></div>
+        </li>
+        <li>
+          <div class="collapsible-header"></div>
+          <div class="collapsible-body"></div>
+        </li>
+        <li>
+          <div class="collapsible-header"></div>
+          <div class="collapsible-body"></div>
+        </li>
+        <li>
+          <div class="collapsible-header"></div>
+          <div class="collapsible-body"></div>
+        </li>
+
+      </ul>
+    </div>
+
+    <div class="col s12 m8 l8">
+      <div class="col s12 white-text">.</div>
+      <div class="col s12 white-text">.</div>
+
+      <div class="col s12 m3 l3">
+        <div class="card red darken-1 z-depth-2">
+          <div class="card-content white-text center">
+            <div class="col s12">
+              <div class="col s5 left-align"><img src="assets/icons/rank.svg" class="board-img"></div>
+              <div class="col s7" id="font-card"><span>Rango</span></div>
+            </div>
+            <span class="card-title">
+                            <p class="bounceEffect animated bounceIn">{{nameRank}}</p>
+                          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m3 l3">
+        <div class="card red darken-1 z-depth-2">
+          <div class="card-content white-text center">
+            <div class="col s12">
+              <div class="col s4 left-align"><img src="assets/icons/empresariosDir.svg" class="board-img"></div>
+              <div class="col s8 font-card"><span>{{totalDirect}}</span></div>
+            </div>
+            <span class="card-title">
+                            <p class="bounceEffect animated bounceIn">E directos</p>
+                          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m3 l3">
+        <div class="card red darken-1 z-depth-2">
+          <div class="card-content white-text center">
+            <div class="col s12">
+              <div class="col s5 left-align"><img src="assets/icons/puntos.svg" class="board-img"></div>
+              <div class="col s7 font-card"><span>{{myPoints}}</span></div>
+            </div>
+            <span class="card-title">
+                            <p class="bounceEffect animated bounceIn">Puntos personales</p>
+                          </span>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3 l3">
+        <div class="card red darken-1 z-depth-2">
+          <div class="card-content white-text center">
+            <div class="col s12">
+              <div class="col s5 left-align"><img src="assets/icons/directos.svg" class="board-img"></div>
+              <div class="col s7 font-card"><span>{{totalPoints}}</span></div>
+            </div>
+            <span class="card-title">
+                            <p class="bounceEffect animated bounceIn">Puntos grupales</p>
+                          </span>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3 l3">
+        <div class="card red darken-1 z-depth-2">
+          <div class="card-content white-text center">
+            <div class="col s12">
+              <div class="col s5 left-align"><img src="assets/icons/totalQuincena.svg" class="board-img"></div>
+              <div class="col s7 font-card"><span>{{totalPago | number}}</span></div>
+            </div>
+            <span class="card-title">
+                            <p class="bounceEffect animated bounceIn">Total quincena</p>
+                          </span>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3 l3">
+        <div class="card red darken-1 z-depth-2">
+          <div class="card-content white-text center">
+            <div class="col s12">
+              <div class="col s5 left-align"><img src="assets/icons/brazo.svg" class="board-img"></div>
+              <div class="col s7 font-card" *ngIf="!comisionOff"><span>{{branchDebil === 'LEFT'?'Izquierdo':'Derecho'}}</span></div>
+              <div class="col s7 font-card" *ngIf="comisionOff"><span></span></div>
+            </div>
+            <span class="card-title">
+                            <p class="bounceEffect animated bounceIn">Brazo de pago</p>
+                          </span>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3 l3">
+        <div class="card red darken-1 z-depth-2">
+          <div class="card-content white-text center">
+            <div class="col s12">
+              <div class="col s5 left-align"><img src="assets/icons/bono.svg" class="board-img"></div>
+              <div class="col s7 font-card"><span>{{bonomultilevel}}</span></div>
+            </div>
+            <span class="card-title">
+                            <p class="bounceEffect animated bounceIn">Bono multinivel</p>
+                          </span>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m3 l3">
+        <div class="card red darken-1 z-depth-2">
+          <div class="card-content white-text center">
+            <div class="col s12">
+              <div class="col s5 left-align"><img src="assets/icons/indirectos.svg" class="board-img"></div>
+              <div class="col s7 font-card"><span>{{totalNetwork}}</span></div>
+            </div>
+            <span class="card-title">
+                            <p class="bounceEffect animated bounceIn">Personas en tu red</p>
+                          </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

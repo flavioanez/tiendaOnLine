@@ -1,0 +1,208 @@
+<app-header-office></app-header-office>
+<div class="container">
+  <div class="row">
+
+    <div class="col s12 center titleconte">
+      <h4>All In App</h4>
+    </div>
+
+  </div>
+</div>
+<div class="container" id="contenedor">
+  <div class="row">
+    <div class="col s12">
+      <div class="col s12 m6 l6">
+        <h4 id="h_4" class="center">Bienvenido</h4>
+        <div class="col s12" id="di">
+          <div class="slider white">
+            <ul class="slides white">
+              <li><img src="../assets/img/slider-unete/page_1.jpg"></li>
+              <li><img src="../assets/img/slider-unete/page_3.jpg"></li>
+              <li><img src="../assets/img/slider-unete/page_4.jpg"></li>
+              <li><img src="../assets/img/slider-unete/page_5.jpg"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col s12 input-field">
+          <h5 id="h_4">
+            Nuestra oportunidad
+          </h5>
+
+        </div>
+        <div class="col s12 input-field">
+          <h6 id="h_4">
+            -Negociar con precios mas bajos del mercado.
+          </h6>
+        </div>
+        <div class="col s12 input-field">
+          <h5 id="h_4">
+            Ganar dinero
+          </h5>
+
+        </div>
+        <div class="col s12 input-field">
+          <h6 id="h_4">
+            -Oportunidad de negocio apartir de la canasta familiar.
+          </h6>
+        </div>
+
+      </div>
+      <form [formGroup]="formBusinessman" (ngSubmit)="onSubmit()">
+        <div class="col s12 m6 l6">
+          <h5 id="h_4" class="center">Formulario de registro</h5>
+          <div class="col s12 input-field">
+            <span id="h_4">*Email</span>
+            <input type="email" [formControl]="formBusinessman.controls['email']">
+          </div>
+          <div class="col s12 input-field">
+            <span>*Crear un usuario</span>
+            <input type="text" [formControl]="formBusinessman.controls['user']">
+          </div>
+          <div class="col s12 input-field">
+            <span>*Crear una contraseña</span>
+            <input type="password" [formControl]="formBusinessman.controls['password']">
+          </div>
+          <div class="col s12 input-field">
+            <span>*Genero</span><br>
+            <select class="browser-default" [formControl]="formBusinessman.controls['gender']">
+              <option value="">Seleccionar</option>
+              <option value="femenino">Femenino</option>
+              <option value="masculino">Masculino</option>
+            </select>
+          </div>
+          <div class="col s12 input-field white-text">..</div>
+          <div class="col s12 input-field">
+            <span>*Nombre</span>
+            <input type="text" [formControl]="formBusinessman.controls['name']">
+          </div>
+          <div class="col s12 m6 l6 input-field">
+            <span>*Primer apellido</span>
+            <input type="text" [formControl]="formBusinessman.controls['lastname1']">
+          </div>
+          <div class="col s12 m6 l6 input-field">
+            <span>*Segundo apellido</span>
+            <input type="text" [formControl]="formBusinessman.controls['lastname2']">
+          </div>
+          <div class="col s12 m6 l6 input-field">
+            <span>*Tipo de documento</span>
+            <select class="browser-default" [formControl]="formBusinessman.controls['typeCC']">
+              <option value="">Seleccione el tipo</option>
+              <option value="cc">CC</option>
+              <option value="c_extrangera">C.Extrangera</option>
+              <option value="pasaporte">Pasaporte</option>
+            </select>
+          </div>
+          <div class="col s12 m6 l6 input-field">
+            <span>N° Documento</span>
+            <input type="number" [formControl]="formBusinessman.controls['identificationcard']">
+          </div>
+          <div class="col s12 input-field">
+            <span class="left">*Fecha de nacimiento</span>
+          </div>
+          <div class="col s12 m12 l12 input-field">
+            <input type="text" class="datepicker" placeholder="Fecha:" (change)="getDate($event)">
+          </div>
+          <div class="col s12 input-field">
+            <span>*Teléfono</span>
+            <input type="number" [formControl]="formBusinessman.controls['telephone']">
+          </div>
+          <div class="col s6 input-field">
+            <span id="h_4">*Departamento</span>
+            <select class="browser-default" [formControl]="formBusinessman.controls['department']">
+              <option value="">Selecciona un departamento</option>
+              <option value="Atlantico">Atlantico</option>
+            </select>
+          </div>
+          <div class="col s6 input-field">
+            <span id="h_4">*Ciudad</span>
+            <select class="browser-default" [formControl]="formBusinessman.controls['city']">
+              <option value="">Selecciona un municipio</option>
+              <option value="Barranquilla">Barranquilla</option>
+            </select>
+          </div>
+          <div class="col s12 input-field">
+            <span>*Direccion</span>
+            <input type="text" [formControl]="formBusinessman.controls['address']">
+          </div>
+          <!-- parte pendiente -->
+          <div class="col s12 input-field center" *ngIf="false">
+            <span>Estado de los brazos principales</span>
+            <div class="white-text">.</div>
+
+            <div class="col s6">
+              <span class="grey-text">Izquierdo:</span>
+            </div>
+            <div class="col s6">
+              <span class="grey-text">Derecho:</span>
+            </div>
+
+            <div class="col s6 red darken-3 white-text center">Inscrito</div>
+
+            <div class="col s6 grey lighten-3 center">Vacio</div>
+
+            <div class="col s6 red darken-3 white-text center">Inscrito</div>
+
+            <div class="col s6 grey lighten-3 center">Vacio</div>
+
+          </div>
+          <!-- parte pendiente -->
+          <div class="col s12 white-text">.</div>
+          <div class="col s12 white-text">.</div>
+
+          <div class="col s12 black-text">
+            <div class="col s12 black-text center"><span style="font-size:17px;">Elegir la posicion en la red</span>
+            </div>
+            <div class="col s12 black-text center">
+
+              <div class="col s12 m6 l6 black-text left-align">
+                <span>*Lado</span>
+                <select class="browser-default" [formControl]="formBusinessman.controls['insideBranch']">
+                  <option value="">Seleccione un lado...</option>
+
+                  <option value="LEFT">Izquierdo</option>
+
+                  <option value="RIGHT">Derecho</option>
+
+                </select>
+              </div>
+              <div class="col s12 m6 l6 black-text left-align">
+                <span>Empresario beneficiado</span>
+                <input type="number" [formControl]="formBusinessman.controls['identificationcardReferred']">
+              </div>
+            </div>
+            <div class="col s12 white-text">.</div>
+            <div class="col s12 white-text">.</div>
+            <div class="col s12">
+              <span>*Activare mi cuenta por medio de:</span>
+            </div>
+            <div class="col s12 input-field">
+              <select class="browser-default" [formControl]="formBusinessman.controls['validateCount']">
+                <option value="">*Seleccionar</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="col s12 input-field white-text">..</div>
+            <div class="col s12 input-field">
+              <p>
+                <label>
+                  <input type="checkbox" [formControl]="formBusinessman.controls['terms']" />
+                  <span>*He leido y acepto los <a href="assets/pdf/Terminos.pdf" target="_blank">
+                                        términos y condiciones</a></span>
+                </label>
+              </p>
+            </div>
+            <div class="col s12 m12 l12 input-field black-text center">
+              <h5>{{message}}</h5>
+            </div>
+            <div class="col s12 input-field white-text">..</div>
+            <div class="col s12 input-field right-align">
+              <button class="btn red darken-3 white-text z-depth-3 cliente_referido" [disabled]="buttons" style="border-radius: 4px;">Terminar registro
+              </button>
+            </div>
+            <div class="col s12 input-field white-text">..</div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

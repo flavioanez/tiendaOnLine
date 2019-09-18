@@ -1,0 +1,175 @@
+<app-header-office></app-header-office>
+<br><br>
+<div class="container">
+  <div class="row">
+
+    <div class="col s12 m12 l12" [ngSwitch]="optionModify">
+
+      <div class="col s12 m12 l12" *ngSwitchCase="'photo'">
+
+        <form>
+          <div class="col s12 m12 l12">
+            <h5 class="h5">Actualización para la Foto de Perfil</h5>
+            <div class="divider"></div>
+            <h6 class="white-text">Datos De La Cuenta</h6>
+            <div class="col s7 input-field">
+              <span>Subir La Foto:</span>
+              <div class="file-field input-field">
+                <div class="btn red darken-4 white-text">
+                  <span>Cargar</span>
+                  <input type="file" name="foto" (change)="loadPhoto($event)">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+                <div class="col s12 m12 l12 right">
+                  <span>{{message}}</span>
+                </div>
+                <div class="col s12 m12 l12">
+                  <button class="btn red darken-4 white-text guardar" (click)="sendPhoto()">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="col s12 m12 l12" *ngSwitchCase="'password'">
+
+        <form [formGroup]="formPassword" (ngSubmit)="sendPassword()">
+          <div class="col s12 m12 l12">
+            <h5 class="h5">Modificación de tu contraseña personal</h5>
+            <div class="divider"></div>
+            <h6 class="white-text">Datos De La Cuenta</h6>
+            <div class="col s12 m5 l5"><h6>Contraseña: **********************</h6></div>
+          </div>
+
+          <div class="col s12">
+            <div class="col s10 m6 l5 input-field">
+              <span class="datosCuenta">Ingresa la nueva contraseña:</span>
+              <input type="password" [formControl]="formPassword.controls['password']" (keyup)="getPassword($event)">
+              <span class="datosCuenta">Confirma la nueva contraseña:</span>
+              <input type="password" [formControl]="formPassword.controls['newPassword']" (keyup)="getPasswordConfirm($event)">
+              <div class="col s12 m12 l12 center">
+                <span class="black-text">{{message}}</span>
+              </div>
+              <div class="cambiar">
+                <button class="btn red darken-4 white-text guardar" [disabled]="enabledpassword">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="col s12 m12 l12" *ngSwitchCase="'address'">
+        <form [formGroup]="formAddress" (ngSubmit)="sendAddress()">
+          <div class="col s12 m12 l12">
+            <h5 class="h5">Modificar La Dirección Del Domicilio</h5>
+            <div class="divider"></div>
+            <h6 class="white-text">Datos De La Cuenta</h6>
+            <div class="col s12 m4 l3"><span>Dirección: {{user.address}}</span></div>
+          </div>
+
+          <div class="col s12">
+            <div class="col s10 m6 l5 input-field">
+              <span class="datosCuenta">Ingresa la Nueva Dirección:</span>
+              <input type="text" [formControl]="formAddress.controls['address']">
+              <div class="col s12 m12 l12 center">
+                <span class="black-text">{{message}}</span>
+              </div>
+              <div class="col s12 m12 l12">
+                <button class="btn red darken-4 white-text guardar">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="col s12 m12 l12" *ngSwitchCase="'user'">
+        <form [formGroup]="formUser" (ngSubmit)="sendUser()">
+          <div class="col s12 m5 l6">
+            <h5 class="h5">Modificación de nombre y apellidos</h5>
+            <div class="divider"></div>
+            <h6 class="white-text">Datos De La Cuenta</h6>
+            <div class="col s12 m12 l12"><span>Editar nombre:</span></div>
+            <div class="col s12 m12 l12"><input [formControl]="formUser.controls['name']"></div>
+            <div class="col s12 m12 l12"><span>Editar primer apellido:</span></div>
+            <div class="col s12 m12 l12"><input [formControl]="formUser.controls['lastname1']"></div>
+            <div class="col s12 m12 l12"><span>Editar segundo apellido:</span></div>
+            <div class="col s12 m12 l12"><input [formControl]="formUser.controls['lastname2']"></div>
+          </div>
+          <div class="col s12 m12 l12 center">
+            <h5 class="black-text">{{message}}</h5>
+          </div>
+          <div class="col s12 m12 l12">
+            <button class="btn red darken-4 white-text guardar">Guardar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col s12 m12 l12" *ngSwitchCase="'email'">
+
+        <form [formGroup]="formEmail" (ngSubmit)="sendEmail()">
+          <div class="col s12 m12 l12">
+            <h5 class="h5">Modificación Del Correo Electronico</h5>
+            <div class="divider"></div>
+            <h6 class="white-text">Datos De La Cuenta</h6>
+            <div class="col s12 m5 l5"><h6>E-mail:{{email}}</h6></div>
+          </div>
+
+          <div class="col s12">
+            <div class="col s10 m6 l5 input-field">
+              <span class="datosCuenta">Ingresa el nuevo Email:</span>
+              <input type="email" [formControl]="formEmail.controls['email']" (keyup)="getEmail($event)">
+              <span class="datosCuenta">Confirma el Nuevo Email:</span>
+              <input type="email" [formControl]="formEmail.controls['emailConfirm']" (keyup)="getEmailConfirm($event)">
+              <div class="col s12 m12 l12 center">
+                <span class="black-text">{{message}}</span>
+              </div>
+              <div class="cambiar">
+                <button class="btn red darken-4 white-text guardar" [disabled]="enabledEmail">Guardar</button>
+              </div>
+            </div>
+            <div class="col s5" id="e-correo">
+              <p class="coiciden"></p>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="col s12 m12 l12" *ngSwitchCase="'telephone'">
+
+        <form [formGroup]="formTelephone" (ngSubmit)="sendTelephone()">
+          <div class="col s12 m12 l12">
+            <h5 class="h5">Modificacion Del Numero Teléfonico</h5>
+            <div class="divider"></div>
+            <h6 class="white-text">Datos De La Cuenta</h6>
+            <div class="col s12">
+              <div class="col s10 m6 l5 input-field">
+                <span class="datosCuenta">Nuevo actual:</span>
+                <input type="number" value="{{oldNumbertelephone}}" class="grey-text" readonly>
+                <span id="datosCuenta">Nuevo Numero:</span>
+                <input type="number" [formControl]="formTelephone.controls['newTelephone']">
+                <div class="col s12 m12 l12 center">
+                  <span class="black-text">{{message}}</span>
+                </div>
+                <button class="btn red darken-4 white-text guardar">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="col s12 m12 l12" *ngSwitchDefault>
+        <h5>No esta esa opcion</h5>
+      </div>
+
+    </div>
+
+  </div>
+</div>

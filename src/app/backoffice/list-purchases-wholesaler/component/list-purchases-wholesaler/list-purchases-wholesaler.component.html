@@ -1,0 +1,169 @@
+<div id="body-content" style="width: 100%!important;">
+    <div class="col s12 m12 l12">
+        <div class="col s12 m5 l5 input-field">
+            <input type="text" [(ngModel)]="buscar" placeholder="Buscar el producto...">
+        </div>
+        <div class="col s12 m7 l7">
+            <span class="totalcompra">Total de la compra: {{totalPurchase|number}}</span><br>
+        </div>
+        <div class="col s12 m12 l12 divider">.</div>
+    </div>
+    <div class="col s12 scroll-cesta">
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <th class="center th borde">Codigo</th>
+                <th class="center th borde">Producto</th>
+                <th class="center th borde">P. Mayorista</th>
+                <th class="center th borde">% M</th>
+                <th class="center th borde">Iva</th>
+                <th class="center th borde">Editar</th>
+                <th class="center th borde">Agregar</th>
+                <th class="center th borde a" (click)="openCart()"><i class="material-icons">shopping_cart</i>({{totalUnits}})
+                </th>
+            </tr>
+            </thead>
+            <tbody class="content-carrito">
+
+            <tr *ngFor="let item of products|searchProduct:buscar">
+                <td class="center">
+                    <small>{{item.code}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.title}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.pricefinalmayorista|number}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.pricediscountmayorista}}</small>
+                </td>
+                <td class="center">
+                    <small>{{item.iva}}</small>
+                </td>
+                <td class="center" style="width: 157px!important;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s12 center">
+                                <a class='quitar' (click)="removeQuantity(item.code)">
+                                    <div class='col s4 center btn btn-b blue'><i class='material-icons'>remove</i></div>
+                                </a>
+                                <div class='col s4 center' style='border:1px solid lightgrey; height:35.7px;'>
+                                    <input type='number' [(ngModel)]="quantity[item.code]"
+                                           class='cajaInputSmall'
+                                           readonly>
+                                </div>
+                                <a class='agregar' (click)="addQuantity(item.code)">
+                                    <div class='col s4 center btn btn-b blue'><i class='material-icons'>add</i></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="center">
+                    <a class='btn-floating waves-effect cyan idPro blue' (click)="addCart(item.code)">
+                        <i class='material-icons'>add_shopping_cart</i>
+                    </a>
+                </td>
+                <td class="center"></td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+
+<div class="cart-body" id="cart-body">
+    <div class="vista-cesta" id="vista-cesta">
+        <div class="container" id="container-cart">
+            <div class="row">
+                <div class="col s12 scroll-cesta">
+                    <table class="responsive-table">
+                        <thead>
+                        <tr>
+                            <th class="center th">Codigo de la factura</th>
+                            <th class="center th">Producto</th>
+                            <th class="center th">Precio</th>
+                            <th class="center th">Puntos</th>
+                            <th class="center th">Total</th>
+                            <th class="center th">Unidades o Libra</th>
+                            <th class="center th">Eliminar</th>
+                        </tr>
+                        </thead>
+                        <tbody class="content-carrito">
+
+                        <tr *ngFor="let item of cartContent">
+                            <td class="center">
+                                <small>{{item.refProduct}}</small>
+                            </td>
+                            <td class="center">
+                                <small>{{item.title}}</small>
+                            </td>
+                            <td class="center">{{item.value | number}}</td>
+                            <td class="center">
+
+                            </td>
+                            <td class="center">{{(item.totalUnits * item.value) | number}}</td>
+                            <td class="center" style="width: 177px;">
+                                <div class="col s12">
+                                    <a class='quitar' (click)="removeUnits(item.refProduct)">
+                                        <div class='col s3 center btn btn-small blue'><i
+                                                class='material-icons'>remove</i>
+                                        </div>
+                                    </a>
+                                    <div class='col s5 center' style='border:1px solid lightgrey; height:27px;'>
+                                        <input type='number' [(ngModel)]="unitSmall[item.refProduct]"
+                                               class='cajaInputSmall' readonly>
+                                    </div>
+                                    <a class='agregar' (click)="addUnits(item.refProduct)">
+                                        <div class='col s3 center btn btn-small blue'><i class='material-icons'>add</i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="center">
+                                <a class="waves-effect waves-light btn-small delete-article color-icon blue"
+                                   (click)="deleteProduct(item.refProduct)"><i class="material-icons left white-text">delete</i></a>
+                            </td>
+                        </tr>
+                        <tr *ngIf="cartContent.length == 0">
+                            <td colspan='7' style="text-align: center;"><br><br>
+                                <img src="../../assets/img/carrito_vacio.png">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+                <div class='col s6 m6 l6'>
+
+                    <div class="col s12 m4 l4 divPerform">
+                        <button class="btn white-text btn-confirm-pending btn-confirm blue" [disabled]="buttons"
+                                (click)="performPurchase()">Realizar Pedido
+                        </button>
+                    </div>
+                    <div class="col s12 m4 l4 divCancel">
+                        <button class="btn white-text btn-pedidos btn-confirm blue" [disabled]="buttons"
+                                (click)="canceledPurchase()">Cancelar Pedido
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col s12 m3 l3 textPrice">
+                    <p class="totalCompra">Total de la Compra: {{totalPurchase |number}}
+
+                    </p>
+                </div>
+                <div class="col s12 m2 l2 textDots">
+                </div>
+                <div class="col s12 m12 l12 center">
+                    <h5>{{message}}</h5>
+                </div>
+                <div class='col s12 m12 l12 alt right-align'><a (click)="openCart()"
+                                                                class="close-know-me btn-floating z-depth-2 cesta-view blue">x</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

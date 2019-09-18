@@ -1,0 +1,99 @@
+
+
+
+  <div class="container" style="width: 100%!important;">
+    <div class="row">
+
+      <div class="col s12 m12 l12" id="scroll-hirizontal">
+
+        <table>
+          <thead>
+          <tr>
+            <th><small>Rango</small></th>
+            <th><small>Fecha</small></th>
+            <th><small>Nombre</small></th>
+            <th><small>Apellido</small></th>
+            <th><small>Periodo</small></th>
+            <th><small>#Nit</small></th>
+            <th><small>Dv</small></th>
+            <th><small>Telefono</small></th>
+            <th><small>C.P en puntos</small></th>
+            <th><small>Valor del punto</small></th>
+            <th><small>V.C personal</small></th>
+            <th><small>Rango de puntos</small></th>
+            <th><small>Patr. directo</small></th>
+            <th><small>B. Izquierdo</small></th>
+            <th><small>B. Derecho</small></th>
+            <th><small>Total puntos</small></th>
+            <th><small>Ingreso</small></th>
+            <th><small>Bono ref 10%</small></th>
+            <th><small>B devil</small></th>
+            <th><small>B izquierdo 10%</small></th>
+            <th><small>B derecho 10%</small></th>
+            <th><small>Bono multinivel</small></th>
+            <th><small>T puntos pagados</small></th>
+            <th><small>Subtotal quincena</small></th>
+            <th><small>Bono de inicio</small></th>
+            <th><small>Total quincena</small></th>
+            <th><small>Operacion</small></th>
+            <th><small>Rete fuente 10%</small></th>
+            <th><small>Ica 1%</small></th>
+            <th><small>Total liquidado</small></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let item of quincenas">
+            <td><small>{{item.quincena.idRango}}</small></td>
+            <td><small>{{item.quincena.fecha}}</small></td>
+            <td><small>{{item.usuario.name}}</small></td>
+            <td><small>{{item.usuario.lastname1}} {{item.usuario.lastname2}}</small></td>
+            <td><small>1</small></td>
+            <td><small>{{item.usuario.identificationcard}}</small></td>
+            <td><small>{{item.usuario.dv}}</small></td>
+            <td><small>{{item.usuario.telephone}}</small></td>
+            <td><small>{{item.quincena.misPuntos}}</small></td>
+            <td><small>{{item.quincena.valorPunto | number}}</small></td>
+            <td><small>{{item.quincena.misPuntos * item.quincena.valorPunto | number}}</small></td>
+            <td><small>{{getPointsRank(item.quincena.idRango)}}</small></td>
+            <td><small>{{item.quincena.patrocinadosdirectos}}</small></td>
+            <td><small>{{item.quincena.puntosBrazoIzq}}</small></td>
+            <td><small>{{item.quincena.puntosBrazoDer}}</small></td>
+            <td><small>{{item.quincena.puntosTotales}}</small></td>
+            <td><small>{{item.quincena.misPuntos * item.quincena.valorPunto | number}}</small></td>
+            <td><small>{{item.quincena.bonoReferido}}</small></td>
+            <td><small>{{item.quincena.brazoDebil}}</small></td>
+            <td><small>{{item.quincena.brazoDebil != 'RIGHT'?item.quincena.bonoBrazoDebil:0}}</small></td>
+            <td><small>{{item.quincena.brazoDebil === 'RIGHT'?item.quincena.bonoBrazoDebil:0}}</small></td>
+            <td><small>{{item.quincena.bonoEquipo}}</small></td>
+            <td><small>{{item.quincena.puntosBrazoDer < item.quincena.puntosBrazoIzq?item.quincena.puntosBrazoDer:item.quincena.puntosBrazoIzq}}</small></td>
+            <td><small>{{item.quincena.subTotalQuincena | number}}</small></td>
+            <td><small>{{item.quincena.bonoinicio | number}}</small></td>
+            <td><small>{{item.quincena.totalQuincena | number}}</small></td>
+            <td><small>{{(item.quincena.ingreso > 0?(item.quincena.totalQuincena/item.quincena.ingreso) * 100:0).toFixed(2)}}%</small></td>
+            <td><small>{{item.quincena.retefuente | number}}</small></td>
+            <td><small>{{item.quincena.ica | number}}</small></td>
+            <td><small>{{item.quincena.totaliquidado | number}}</small></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col s12 m12 l12 divider"></div>
+      <div class="col s12 m12 l12" *ngIf="quincenas.length > 0">
+        <div class="col s12 m2 l2"><small>Ingreso: {{totalIngreso * valorPunto | number}}</small></div>
+        <div class="col s12 m2 l2"><small>Retefuente: {{totalRetefuente | number}}</small></div>
+        <div class="col s12 m2 l2"><small>Ica: {{totalIca | number}}</small></div>
+        <div class="col s12 m2 l2"><small>Total pagado: {{totalPagado | number}}</small></div>
+        <div class="col s12 m2 l2"><small>Operacion: {{(operacion).toFixed() | number}}%</small></div>
+      </div>
+      <div class="col s12 m12 l12 divider"></div>
+      <div class="col s12 m12 l12"><br>
+        <button class="btn blue" [disabled]="enableComision" (click)="calculate()">Comisionár</button>
+        <button class="btn blue" [disabled]="enableReport" (click)="seeReport()">Ver reporte</button>
+      </div>
+      <div class="col s12 m12 l12 center">
+        <h5 class="black-text">{{message}}</h5>
+      </div>
+    </div>
+  </div>
+

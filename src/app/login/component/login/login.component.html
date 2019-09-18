@@ -1,0 +1,24 @@
+<app-header-home></app-header-home>
+<br><br><br><br><br>
+<div class="container z-depth-2 col s12 m5 l5 center login" style="border: 1px solid #e0e0e0;">
+  <div style="margin:15px 0;">
+    <a href="#!"><img src="assets/png/LOGOAIA.png" height="100" width="100"></a>
+    <p>Inicia sesión con tu cuenta<br>O <a href="#!" class="red-text" [routerLink]="['/unete']"><i>Registrate</i></a></p>
+  </div>
+  <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <div class="input-field">
+      <input type="text" style="width: 80%;" placeholder="Usuario:" [formControl]="formLogin.controls['user']">
+    </div>
+    <div class="input-field col s12">
+      <input type="password" style="width: 80%;" placeholder="Contraseña:" [formControl]="formLogin.controls['password']">
+    </div>
+    <input class="waves-effect waves-teal btn-flat entrar_btn" value="Ingresar" type="submit">
+  </form>
+  <div class="divider" style="margin: 20px 0;"></div>
+  <div class="col s12 center">
+    <a *ngIf="!message" [routerLink]="['/recoverData']">¿Olvidaste tu usuario o contraseña?</a>
+    <a *ngIf="message" class="red-text">{{message}}</a>
+  </div>
+  <div class="col s12 white-text">.</div>
+  <!--  <a href="../home.html">Crear cuenta</a>  -->
+</div>

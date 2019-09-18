@@ -1,0 +1,51 @@
+#body-left {}
+
+.borde {
+    border: 1px solid lightgrey;
+}
+
+#body-collapse {
+    width: 20%;
+    float: left;
+}
+
+#body-content {
+    float: left;
+    width: 80%;
+}
+
+#collapse {
+    margin-top: -0.4%;
+}
+
+.collapsible-body {
+    height: 17px!important;
+    position: relative;
+}
+
+.collapsible-body:hover {
+    background: blue;
+    color: white;
+}
+
+span {
+    position: absolute;
+    top: 21%;
+    left: 17%;
+}
+
+input{
+    border: 1px solid grey!important;
+    border-radius: 4px!important;
+}
+
+#scroll-hirizontal{
+    width: 100%!important;
+    overflow-y: hidden!important;
+    overflow-x: auto!important;
+    border:1px solid grey;
+}
+
+button{
+    margin-left: 1em!important;
+}

@@ -1,0 +1,261 @@
+<app-header-office></app-header-office>
+<div class="container" style="width: 100%">
+  <div class="row">
+
+    <div class="col s12 center">
+      <h5 class="serif">Registrar tu cliente mayorista</h5>
+      <div class="divider"></div>
+      <div class="col s12 m12 l12">
+        <div class="col s12 m4 l4 input-field">
+          <span class="left">*Persona</span>
+          <select class="browser-default validate" (change)="seePeople($event.target.value)">
+            <option value="">Seleccione el tipo</option>
+            <option value="1">Natural</option>
+            <option value="2">Juridica</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m12 l12 white-text">.</div>
+    <div class="col s12 m12 l12 center borde">
+      <h4 class="black-text" *ngIf="title">{{title}}</h4>
+    </div>
+    <div class="col s12 m12 l12 divider"></div>
+
+    <div class="col s12 m12 l12" *ngIf="seeJuridico">
+
+      <form [formGroup]="formJuridica" (ngSubmit)="onSubmitJuridico()" #formLegal>
+
+        <div class="col s12 m12 l12">
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Nombre de la entidad</span>
+            <input type="text" [formControl]="formJuridica.controls['entity']"
+                   placeholder="Nombre de la entidad:">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Numero del Nit</span>
+            <input type="number" [formControl]="formJuridica.controls['numberNit']"
+                   placeholder="Numero del nit:">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Telefono</span>
+            <input type="number" [formControl]="formJuridica.controls['telephone']"
+                   placeholder="Numero telefonico:">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Ingresa una clave personal</span>
+            <input type="password" [formControl]="formJuridica.controls['password']"
+                   placeholder="Clave personal:">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Departamento</span>
+            <select class="browser-default" [formControl]="formJuridica.controls['department']"
+                    id="departamento">
+              <option value="">Selecciona el departamento</option>
+              <option value="atlantico">Atlantico</option>
+
+            </select>
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*ciudad</span>
+            <select class="browser-default" [formControl]="formJuridica.controls['city']" id="ciudad">
+              <option value="">Selecciona la ciudad</option>
+              <option value="barranquilla">barranquilla</option>
+            </select>
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Nombres</span>
+            <input type="text" [formControl]="formJuridica.controls['name']" placeholder="Nombres:">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Apellidos</span>
+            <input type="text" [formControl]="formJuridica.controls['lastnames']" placeholder="Apellidos:">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Tipo de documento</span>
+            <select class="browser-default" [formControl]="formJuridica.controls['typeCC']">
+              <option value="">Seleccione el tipo</option>
+              <option value="cc">CC</option>
+              <option value="c_extrangera">C.Extrangera</option>
+              <option value="pasaporte">Pasaporte</option>
+            </select>
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Numero de cedula</span>
+            <input type="number" [formControl]="formJuridica.controls['identificationcard']"
+                   placeholder="Numero de cedula:">
+          </div>
+
+          <div class="col s12 m4 l4 input-field" style="margin-top: 1.3%;">
+            <span class="left">*E-mail</span>
+            <input type="email" [formControl]="formJuridica.controls['email']"
+                   placeholder="Ingresa el correo:">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span>Foto de la cedula:</span>
+            <div class="file-field input-field">
+              <div class="btn red darken-4 white-text">
+                <span>Cargar</span>
+                <input #myPhoto type="file" (change)="onloadPhoto($event, true)">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate f" type="text" placeholder="Cargar foto">
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span>Foto de la camara de comercio:</span>
+            <div class="file-field input-field">
+              <div class="btn red darken-4 white-text">
+                <span>Cargar</span>
+                <input #myPhoto type="file" (change)="onloadPhoto($event, true)">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate f" type="text" placeholder="Cargar el foto">
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span>Foto del rut:</span>
+            <div class="file-field input-field">
+              <div class="btn red darken-4 white-text">
+                <span>Cargar</span>
+                <input #myPhoto type="file" (change)="onloadPhoto($event, true)">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate f" type="text" placeholder="Cargar el foto">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col s12 m12 l12 center">
+          <h5>{{message}}</h5>
+        </div>
+
+        <div class="col s12 input-field right-align">
+          <div class="col s6 m10 l10 right-align">
+            <button class="btn red darken-3 white-text z-depth-3">Registrar</button>
+          </div>
+          <div class="col s6 m2 l2 left-align">
+            <a class="btn red darken-3 white-text z-depth-3 cliente_ramdon"
+               (click)="canceled()">Cancelar</a>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- formulario de la persona Natural -->
+
+    <div class="col s12 m12 l12" *ngIf="seeNatural">
+
+      <form [formGroup]="formNatural" (ngSubmit)="onSubmitNatural()" enctype='multipart/form-data' #formN>
+
+        <div class="col s12 m3 l3 input-field">
+          <span class="left">*nombres</span>
+          <input type="text" placeholder="Nombres:" [formControl]="formNatural.controls['name']">
+        </div>
+
+        <div class="col s12 m3 l3 input-field">
+          <span class="left">*Apellidos</span>
+          <input type="text" placeholder="Apellidos:" [formControl]="formNatural.controls['lastnames']">
+        </div>
+
+        <div class="col s12 m3 l3 input-field">
+          <span class="left">*Telefono</span>
+          <input type="number" placeholder="Numero telefonico:"
+                 [formControl]="formNatural.controls['telephone']">
+        </div>
+        <div class="col s12 m3 l3 input-field">
+          <span class="left">*Tipo de documento</span>
+          <select class="browser-default" [formControl]="formNatural.controls['typeCC']">
+            <option value="">Seleccione el tipo</option>
+            <option value="cc">CC</option>
+            <option value="c_extrangera">C.Extrangera</option>
+            <option value="pasaporte">Pasaporte</option>
+          </select>
+        </div>
+        <div class="col s12 m12 l12">
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Numero de cedula</span>
+            <input type="number" placeholder="Numero de cedula:"
+                   [formControl]="formNatural.controls['identificationcard']">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*E-mail</span>
+            <input type="email" placeholder="E-mail:"
+                   [formControl]="formNatural.controls['email']">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Clave personal:</span>
+            <input type="password" placeholder="Ingresa tu cedula:"
+                   [formControl]="formNatural.controls['password']">
+          </div>
+
+          <div class="col s12 m3 l3 input-field">
+            <span class="left">*Departamento</span>
+            <select class="browser-default" [formControl]="formNatural.controls['department']">
+              <option value="">Selecciona el departamento</option>
+              <option value="atlantico">Atlantico</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="col s12 m4 l4">
+          <div class="col s12 m12 l12 input-field">
+            <span class="left">*ciudad</span>
+            <select class="browser-default" [formControl]="formNatural.controls['city']">
+              <option value="">Selecciona una ciudad</option>
+              <option value="barranquilla">Barranquilla</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col s12 m6 l6 input-field" style="margin-top: 1.7%;">
+          <div class="file-field input-field">
+            <div class="btn red darken-4 white-text">
+              <span>Cargar</span>
+              <input type="file" id="identificationcardPhoto" (change)="onloadPhoto($event, false)">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" placeholder="Cargar la cedula" style="width: 87%;">
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m12 l12 center">
+          <h5 style="font-family: Serif;">{{message}}</h5>
+        </div>
+
+        <div class="col s12 input-field right-align">
+          <div class="col s6 m10 l10 right-align">
+            <button class="btn red darken-3 white-text z-depth-3" id="guardar-cliente">Registrar</button>
+          </div>
+          <div class="col s6 m2 l2 left-align">
+            <button class="btn red darken-3 white-text z-depth-3 cliente_ramdon">Cancelar</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
